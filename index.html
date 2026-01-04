@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مؤسسة الأمل الخيرية - تبرع الآن</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6D28D9',
+                        'primary-dark': '#5B21B6',
+                        'primary-light': '#A78BFA',
+                        'cta-red': '#DC2626',
+                        'cta-red-dark': '#B91C1C',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap');
+        body {
+            font-family: 'Tajawal', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    
+    <!-- Top Header Bar -->
+    <div class="bg-primary text-white text-sm">
+        <div class="container mx-auto px-4 py-2">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-4">
+                    <a href="#" class="hover:text-purple-200 transition">تسجيل الدخول</a>
+                    <span class="text-purple-300">|</span>
+                    <a href="#" class="hover:text-purple-200 transition">تواصل معنا</a>
+                    <span class="text-purple-300">|</span>
+                    <a href="#" class="hover:text-purple-200 transition">English</a>
+                </div>
+                <div class="flex items-center gap-3">
+                    <a href="#" aria-label="فيسبوك" class="hover:text-purple-200 transition">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a href="#" aria-label="تويتر" class="hover:text-purple-200 transition">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                    </a>
+                    <a href="#" aria-label="انستغرام" class="hover:text-purple-200 transition">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg>
+                    </a>
+                    <a href="#" aria-label="واتساب" class="hover:text-purple-200 transition">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navbar -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center gap-6">
+                    <button class="bg-cta-red hover:bg-cta-red-dark text-white px-6 py-2.5 rounded-lg font-bold transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                        تبرع الآن
+                    </button>
+                    <div class="hidden lg:flex items-center gap-6 text-gray-700">
+                        <a href="#" class="hover:text-primary transition font-medium">تواصل</a>
+                        <a href="#" class="hover:text-primary transition font-medium">من نحن</a>
+                        <a href="#" class="hover:text-primary transition font-medium">قصص النجاح</a>
+                        <a href="#" class="hover:text-primary transition font-medium">الحملات</a>
+                        <a href="#" class="hover:text-primary transition font-medium">الكفالات</a>
+                        <a href="#" class="hover:text-primary transition font-medium">المشاريع</a>
+                        <a href="#" class="hover:text-primary transition font-medium text-primary">الرئيسية</a>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <button class="lg:hidden text-gray-700" id="mobile-menu-btn" aria-label="القائمة">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                    <a href="#" class="font-bold text-2xl text-primary flex items-center gap-2">
+                        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                        <span>مؤسسة الأمل</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hidden lg:hidden pb-4" id="mobile-menu">
+                <div class="flex flex-col gap-3 text-gray-700">
+                    <a href="#" class="hover:text-primary transition font-medium py-2 border-b">الرئيسية</a>
+                    <a href="#" class="hover:text-primary transition font-medium py-2 border-b">المشاريع</a>
+                    <a href="#" class="hover:text-primary transition font-medium py-2 border-b">الكفالات</a>
+                    <a href="#" class="hover:text-primary transition font-medium py-2 border-b">الحملات</a>
+                    <a href="#" class="hover:text-primary transition font-medium py-2 border-b">قصص النجاح</a>
+                    <a href="#" class="hover:text-primary transition font-medium py-2 border-b">من نحن</a>
+                    <a href="#" class="hover:text-primary transition font-medium py-2">تواصل</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-[700px] lg:h-[600px] bg-gradient-to-br from-gray-900 to-gray-700">
+        <div class="absolute inset-0">
+            <img src="https://picsum.photos/1920/700?random=1" alt="صورة البطل" class="w-full h-full object-cover opacity-40">
+            <div class="absolute inset-0 bg-gradient-to-r from-primary/60 to-purple-900/60"></div>
+        </div>
+        <div class="container mx-auto px-4 h-full relative z-10">
+            <div class="flex items-center h-full">
+                <div class="w-full lg:w-5/12 mr-auto">
+                    <div class="bg-white rounded-2xl shadow-2xl p-8">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-3">تبرع الآن وكن جزءاً من التغيير</h2>
+                        <p class="text-gray-600 mb-6">مساهمتك تصنع فرقاً حقيقياً في حياة الآلاف من المحتاجين حول العالم</p>
+                        
+                        <div class="flex gap-2 mb-6">
+                            <button class="flex-1 bg-primary text-white py-3 rounded-lg font-bold transition shadow-md">مرة واحدة</button>
+                            <button class="flex-1 bg-gray-100 text-gray-700 py-3 rounded-lg font-bold hover:bg-gray-200 transition">شهرياً</button>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-3 mb-6">
+                            <button class="bg-purple-50 hover:bg-primary hover:text-white text-primary font-bold py-3 rounded-lg transition border-2 border-primary">100 ريال</button>
+                            <button class="bg-purple-50 hover:bg-primary hover:text-white text-primary font-bold py-3 rounded-lg transition border-2 border-primary">200 ريال</button>
+                            <button class="bg-purple-50 hover:bg-primary hover:text-white text-primary font-bold py-3 rounded-lg transition border-2 border-primary">500 ريال</button>
+                            <button class="bg-purple-50 hover:bg-primary hover:text-white text-primary font-bold py-3 rounded-lg transition border-2 border-primary">1000 ريال</button>
+                        </div>
+
+                        <div class="mb-6">
+                            <input type="number" placeholder="مبلغ آخر" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-primary transition">
+                        </div>
+
+                        <button class="w-full bg-cta-red hover:bg-cta-red-dark text-white py-4 rounded-lg font-bold text-lg transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 mb-4">
+                            تبرع الآن
+                        </button>
+
+                        <div class="flex gap-3">
+                            <button class="flex-1 bg-purple-100 hover:bg-purple-200 text-primary py-3 rounded-lg font-medium transition">إهداء تبرع</button>
+                            <button class="flex-1 bg-purple-100 hover:bg-purple-200 text-primary py-3 rounded-lg font-medium transition">تبرع عبر البنك</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-8 left-8 flex gap-2">
+            <span class="w-3 h-3 bg-white rounded-full"></span>
+            <span class="w-3 h-3 bg-white/50 rounded-full"></span>
+            <span class="w-3 h-3 bg-white/50 rounded-full"></span>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold text-gray-800 mb-6">إذا كفلت فأنت تصنع أمل</h2>
+                    <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+                        كفالتك اليوم تعني مستقبلاً أفضل لطفل يحتاج إلى الرعاية والتعليم والصحة. مع كل كفالة، أنت تفتح باباً جديداً من الأمل وتغير حياة بأكملها نحو الأفضل.
+                    </p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-primary flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-gray-700 text-lg">توفير التعليم النوعي للأطفال المحتاجين</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-primary flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-gray-700 text-lg">الرعاية الصحية الشاملة والمستمرة</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-primary flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-gray-700 text-lg">دعم نفسي واجتماعي متخصص</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-primary flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-gray-700 text-lg">توفير احتياجات المعيشة الأساسية</span>
+                        </li>
+                    </ul>
+                    <button class="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-lg font-bold transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                        ابدأ الكفالة الآن
+                    </button>
+                </div>
+                <div>
+                    <div class="rounded-2xl overflow-hidden shadow-2xl">
+                        <img src="https://picsum.photos/600/500?random=2" alt="طفل سعيد" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Strip -->
+    <section class="py-12 bg-purple-50">
+        <div class="container mx-auto px-4">
+            <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">مشاريعنا المميزة</h3>
+            <div class="flex overflow-x-auto gap-4 pb-4 scrollbar-hide" style="scrollbar-width: none; -ms-overflow-style: none;">
+                <div class="flex-shrink-0 w-48 bg-white rounded-xl shadow-md hover:shadow-lg transition transform hover:-translate-y-1 cursor-pointer">
+                    <img src="https://picsum.photos/200/150?random=10" alt="مشروع" class="w-full h-32 object-cover rounded-t-xl">
+                    <div class="p-4">
+                        <h4 class="font-bold text-gray-800 text-center">بناء المساجد</h4>
+                    </div>
+                </div>
+                <div class="flex-shrink-0 w-48 bg-white rounded-xl shadow-md hover:shadow-lg transition transform hover:-translate-y-1 cursor-pointer">
+                    <img src="https://picsum.photos/200/150?random=11" alt="مشروع" class="w-full h-32 object-cover rounded-t-xl">
+                    <div class="p-4">
+                        <h4 class="font-bold text-gray-800 text-center">حفر الآبار</h4>
+                    </div>
+                </div>
+                <div class="flex-shrink-0 w-48 bg-white rounded-xl shadow-md hover:shadow-lg transition transform hover:-translate-y-1 cursor-pointer">
+                    <img src="https://picsum.photos/200/150?random=12" alt="مشروع" class="w-full h-32 object-cover rounded-t-xl">
+                    <div class="p-4">
+                        <h4 class="font-bold text-gray-800 text-center">كفالة اليتيم</h4>
+                    </div>
+                </div>
+                <div class="flex-shrink-0 w-48 bg-white rounded-xl shadow-md hover:shadow-lg transition transform hover:-translate-y-1 cursor-pointer">
+                    <img src="https://picsum.photos/200/150?random=13" alt="مشروع" class="w-full h-32 object-cover rounded-t-xl">
+                    <div class="p-4">
+                        <h4 class="font-bold text-gray-800 text-center">الإغاثة الطارئة</h4>
+                    </div>
+                </div>
+                <div class="flex-shrink-0 w-48 bg-white rounded-xl shadow-md hover:shadow-lg transition transform hover:-translate-y-1 cursor-pointer">
+                    <img src="https://picsum.photos/200/150?random=14" alt="مشروع" class="w-full h-32 object-cover rounded-t-xl">
+                    <div class="p-4">
+                        <h4 class="font-bold text-gray-800 text-center">التعليم والثقافة</h4>
+                    </div>
+                </div>
+                <div class="flex-shrink-0 w-48 bg-white rounded-xl shadow-md hover:shadow-lg transition transform hover:-translate-y-1 cursor-pointer">
+                    <img src="https://picsum.photos/200/150?random=15" alt="مشروع" class="w-full h-32 object-cover rounded-t-xl">
+                    <div class="p-4">
+                        <h4 class="font-bold text-gray-800 text-center">الرعاية الصحية</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Cards Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-gray-800 mb-4 text-center">تبرع من أجل قضية تهمك</h2>
+            <p class="text-gray-600 text-center mb-12 text-lg">اختر المشروع الذي يلامس قلبك وساهم في صنع الفرق</p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden group hover:shadow-2xl transition transform hover:-translate-y-1">
+                    <div class="relative h-64">
+                        <img src="https://picsum.photos/400/300?random=20" alt="مشروع" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        <div class="absolute top-4 right-4 bg-cta-red text-white px-4 py-2 rounded-lg font-bold shadow-lg">
+                            500 ريال
+                        </div>
+                        <div class="absolute bottom-4 right-4 left-4">
+                            <h3 class="text-white text-2xl font-bold mb-2">إفطار صائم</h3>
+                            <p class="text-white/90 text-sm">وفر وجبة إفطار لأسرة محتاجة طوال شهر رمضان</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex gap-2 mb-4">
+                            <button class="flex-1 bg-purple-100 hover:bg-primary hover:text-white text-primary py-2 rounded-lg font-medium transition text-sm">100</button>
+                            <button class="flex-1 bg-purple-100 hover:bg-primary hover:text-white text-primary py-2 rounded-lg font-medium transition text-sm">250</button>
+                            <button class="flex-1 bg-purple-100 hover:bg-primary hover:text-white text-primary py-2 rounded-lg font-medium transition text-sm">500</button>
+                        </div>
+                        <button class="w-full bg-cta-red hover:bg-cta-red-dark text-white py-3 rounded-lg font-bold transition">
+                            تبرع الآن
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden group hover:shadow-2xl transition transform hover:-translate-y-1">
+                    <div class="relative h-64">
+                        <img src="https://picsum.photos/400/300?random=21" alt="مشروع" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        <div class="absolute top-4 right-4 bg-cta-red text-white px-4 py-2 rounded-lg font-bold shadow-lg">
+                            1,500 ريال
+                        </div>
+                        <div class="absolute bottom-4 right-4 left-4">
+                            <h3 class="text-white text-2xl font-bold mb-2">حفر بئر ماء</h3>
+                            <p class="text-white/90 text-sm">وفر مياه نظيفة لقرية كاملة وكن سبباً في حياتهم</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex gap-2 mb-4">
+                            <button class="flex-1 bg-purple-100 hover:bg-primary hover:text-white text-primary py-2 rounded-lg font-medium transition text-sm">500</button>
+                            <button class="flex-1 bg-purple-100 hover:bg-primary hover:text-white text-primary py-2 rounded-lg font-medium transition text-sm">1000</button>
+                            <button class="flex-1 bg-purple-100 hover:bg-primary hover:text-white text-primary py-2 rounded-lg font-medium transition text-sm">1500</button>
+                        </div>
+                        <button class="w-full bg-cta-red hover:bg-cta-red-dark text-white py-3 rounded-lg font-bold transition">
+                            تبرع الآن
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden group hover:shadow-2xl transition transform hover:-translate-y-1">
+                    <div class="relative h-64">
+                        <img src="https://picsum.photos/400/300?random=22" alt="مشروع" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        <div class="absolute top-4 right-4 bg-cta-red text-white px-4 py-2 rounded-lg font-bold shadow-lg">
+                            300 ريال
+                        </div>
+                        <div class="absolute bottom-4 right-4 left-4">
+                            <h3 class="text-white text-2xl font-bold mb-2">سلة غذائية</h3>
+                            <p class="text-white/90 text-sm">وفر احتياجات أسرة محتاجة لشهر كامل من الطعام</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex gap-2 mb-4">
+                            <button class="flex-1 bg-purple-100 hover:bg-primary hover:text-white text-primary py-2 rounded-lg font-medium transition text-sm">100</button>
+                            <button class="flex-1 bg-purple-100 hover:bg-primary hover:text-white text-primary py-2 rounded-lg font-medium transition text-sm">200</button>
+                            <button class="flex-1 bg-purple-100 hover:bg-primary hover:text-white text-primary py-2 rounded-lg font-medium transition text-sm">300</button>
+                        </div>
+                        <button class="w-full bg-cta-red hover:bg-cta-red-dark text-white py-3 rounded-lg font-bold transition">
+                            تبرع الآن
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-gray-800 mb-4 text-center">كفالات مجتمعية تحتاج لدعمك</h2>
+            <p class="text-gray-600 text-center mb-12 text-lg">مشاريع نوعية تحدث أثراً مستداماً في حياة المستفيدين</p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition transform hover:-translate-y-1">
+                    <img src="https://picsum.photos/400/250?random=30" alt="مشروع" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">بناء مدرسة في اليمن</h3>
+                        <p class="text-gray-600 mb-4 text-sm">مشروع تعليمي يستهدف بناء مدرسة تستوعب 300 طالب في المناطق المحرومة</p>
+                        <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>اليمن - صنعاء</span>
+                            <span class="mx-2">|</span>
+                            <span>المدة: 6 أشهر</span>
+                        </div>
+                        <div class="mb-4">
+                            <div class="flex justify-between text-sm mb-2">
+                                <span class="text-gray-700 font-medium">تم جمع: 75,000 ريال</span>
+                                <span class="text-gray-700 font-medium">الهدف: 150,000</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-primary h-2.5 rounded-full" style="width: 50%"></div>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-1">تم إنجاز 50% من المشروع</p>
+                        </div>
+                        <button class="w-full bg-primary hover:bg-primary-dark text-white py-3 rounded-lg font-bold transition">
+                            ساهم في المشروع
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition transform hover:-translate-y-1">
+                    <img src="https://picsum.photos/400/250?random=31" alt="مشروع" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">إعمار مسجد في سوريا</h3>
+                        <p class="text-gray-600 mb-4 text-sm">إعادة بناء وترميم مسجد تضرر من الحرب ليصبح ملاذاً آمناً للمصلين</p>
+                        <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>سوريا - حلب</span>
+                            <span class="mx-2">|</span>
+                            <span>المدة: 4 أشهر</span>
+                        </div>
+                        <div class="mb-4">
+                            <div class="flex justify-between text-sm mb-2">
+                                <span class="text-gray-700 font-medium">تم جمع: 92,000 ريال</span>
+                                <span class="text-gray-700 font-medium">الهدف: 120,000</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-primary h-2.5 rounded-full" style="width: 77%"></div>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-1">تم إنجاز 77% من المشروع</p>
+                        </div>
+                        <button class="w-full bg-primary hover:bg-primary-dark text-white py-3 rounded-lg font-bold transition">
+                            ساهم في المشروع
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition transform hover:-translate-y-1">
+                    <img src="https://picsum.photos/400/250?random=32" alt="مشروع" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">مركز صحي في غزة</h3>
+                        <p class="text-gray-600 mb-4 text-sm">إنشاء مركز صحي متكامل يوفر الرعاية الطبية للآلاف من المحتاجين</p>
+                        <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>فلسطين - غزة</span>
+                            <span class="mx-2">|</span>
+                            <span>المدة: 8 أشهر</span>
+                        </div>
+                        <div class="mb-4">
+                            <div class="flex justify-between text-sm mb-2">
+                                <span class="text-gray-700 font-medium">تم جمع: 45,000 ريال</span>
+                                <span class="text-gray-700 font-medium">الهدف: 200,000</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-primary h-2.5 rounded-full" style="width: 22%"></div>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-1">تم إنجاز 22% من المشروع</p>
+                        </div>
+                        <button class="w-full bg-primary hover:bg-primary-dark text-white py-3 rounded-lg font-bold transition">
+                            ساهم في المشروع
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition transform hover:-translate-y-1">
+                    <img src="https://picsum.photos/400/250?random=33" alt="مشروع" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">كفالة 100 يتيم</h3>
+                        <p class="text-gray-600 mb-4 text-sm">برنامج كفالة شامل يوفر التعليم والصحة والسكن لمئة يتيم</p>
+                        <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>الأردن - الزرقاء</span>
+                            <span class="mx-2">|</span>
+                            <span>المدة: سنة</span>
+                        </div>
+                        <div class="mb-4">
+                            <div class="flex justify-between text-sm mb-2">
+                                <span class="text-gray-700 font-medium">تم جمع: 180,000 ريال</span>
+                                <span class="text-gray-700 font-medium">الهدف: 240,000</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-primary h-2.5 rounded-full" style="width: 75%"></div>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-1">تم إنجاز 75% من المشروع</p>
+                        </div>
+                        <button class="w-full bg-primary hover:bg-primary-dark text-white py-3 rounded-lg font-bold transition">
+                            ساهم في المشروع
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition transform hover:-translate-y-1">
+                    <img src="https://picsum.photos/400/250?random=34" alt="مشروع" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">مشروع الأضاحي</h3>
+                        <p class="text-gray-600 mb-4 text-sm">توزيع لحوم الأضاحي على الأسر الأشد فقراً في عدة دول</p>
+                        <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>عدة دول</span>
+                            <span class="mx-2">|</span>
+                            <span>موسمي</span>
+                        </div>
+                        <div class="mb-4">
+                            <div class="flex justify-between text-sm mb-2">
+                                <span class="text-gray-700 font-medium">تم جمع: 320,000 ريال</span>
+                                <span class="text-gray-700 font-medium">الهدف: 500,000</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-primary h-2.5 rounded-full" style="width: 64%"></div>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-1">تم إنجاز 64% من المشروع</p>
+                        </div>
+                        <button class="w-full bg-primary hover:bg-primary-dark text-white py-3 rounded-lg font-bold transition">
+                            ساهم في المشروع
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition transform hover:-translate-y-1">
+                    <img src="https://picsum.photos/400/250?random=35" alt="مشروع" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">مشروع الشتاء الدافئ</h3>
+                        <p class="text-gray-600 mb-4 text-sm">توفير ملابس شتوية وبطانيات ووقود للتدفئة للعائلات المحتاجة</p>
+                        <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>لبنان - مخيمات</span>
+                            <span class="mx-2">|</span>
+                            <span>المدة: 3 أشهر</span>
+                        </div>
+                        <div class="mb-4">
+                            <div class="flex justify-between text-sm mb-2">
+                                <span class="text-gray-700 font-medium">تم جمع: 28,000 ريال</span>
+                                <span class="text-gray-700 font-medium">الهدف: 80,000</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-primary h-2.5 rounded-full" style="width: 35%"></div>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-1">تم إنجاز 35% من المشروع</p>
+                        </div>
+                        <button class="w-full bg-primary hover:bg-primary-dark text-white py-3 rounded-lg font-bold transition">
+                            ساهم في المشروع
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner CTA Section -->
+    <section class="py-20 relative">
+        <div class="absolute inset-0">
+            <img src="https://picsum.photos/1920/500?random=40" alt="مخيم" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-primary/90 to-purple-900/80"></div>
+        </div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-3xl">
+                <div class="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-10">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-4">حملة طوارئ: إغاثة عاجلة للمتضررين</h2>
+                    <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+                        الآلاف من العائلات تحتاج لمساعدتك الفورية. توفير المأوى والغذاء والدواء لمن فقدوا كل شيء. كل دقيقة تحسب، وكل ريال ينقذ حياة.
+                    </p>
+                    <div class="flex gap-4 flex-wrap">
+                        <button class="bg-cta-red hover:bg-cta-red-dark text-white px-8 py-4 rounded-lg font-bold text-lg transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                            تبرع للطوارئ الآن
+                        </button>
+                        <button class="bg-white hover:bg-gray-100 text-primary px-8 py-4 rounded-lg font-bold text-lg transition border-2 border-primary">
+                            اعرف المزيد
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-gray-800 mb-4 text-center">قصص من الميدان</h2>
+            <p class="text-gray-600 text-center mb-12 text-lg">نجاحات حقيقية بفضل كرمكم ودعمكم المستمر</p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <article class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition">
+                    <img src="https://picsum.photos/400/250?random=50" alt="قصة نجاح" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">أحمد يعود إلى المدرسة</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            بعد أن اضطر لترك الدراسة بسبب الظروف الصعبة، عاد أحمد إلى مقاعد الدراسة بفضل برنامج الكفالة التعليمية. اليوم هو من الأوائل في صفه ويحلم بأن يصبح طبيباً.
+                        </p>
+                        <a href="#" class="text-primary font-bold hover:text-primary-dark transition inline-flex items-center gap-2">
+                            اقرأ القصة كاملة
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition">
+                    <img src="https://picsum.photos/400/250?random=51" alt="قصة نجاح" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">قرية كاملة تحصل على مياه نظيفة</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            حفر بئر واحد غير حياة 500 شخص. لم يعد الأطفال يمشون كيلومترات للحصول على الماء، وانخفضت الأمراض بشكل كبير. شكراً لكل من ساهم في هذا المشروع.
+                        </p>
+                        <a href="#" class="text-primary font-bold hover:text-primary-dark transition inline-flex items-center gap-2">
+                            اقرأ القصة كاملة
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition">
+                    <img src="https://picsum.photos/400/250?random=52" alt="قصة نجاح" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">فاطمة تتلقى العلاج</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            كانت فاطمة تعاني من مرض مزمن ولا تستطيع عائلتها تحمل تكاليف العلاج. من خلال برنامجنا الصحي، تلقت العلاج اللازم وتعافت تماماً. الآن تلعب مع أصدقائها وتحلم بمستقبل مشرق.
+                        </p>
+                        <a href="#" class="text-primary font-bold hover:text-primary-dark transition inline-flex items-center gap-2">
+                            اقرأ القصة كاملة
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="py-12 bg-purple-50">
+        <div class="container mx-auto px-4">
+            <h3 class="text-2xl font-bold text-gray-800 mb-8 text-center">شركاؤنا في صنع الفرق</h3>
+            <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                <div class="bg-white rounded-lg p-6 flex items-center justify-center shadow hover:shadow-md transition h-24">
+                    <div class="text-gray-400 font-bold text-sm text-center">شريك 1</div>
+                </div>
+                <div class="bg-white rounded-lg p-6 flex items-center justify-center shadow hover:shadow-md transition h-24">
+                    <div class="text-gray-400 font-bold text-sm text-center">شريك 2</div>
+                </div>
+                <div class="bg-white rounded-lg p-6 flex items-center justify-center shadow hover:shadow-md transition h-24">
+                    <div class="text-gray-400 font-bold text-sm text-center">شريك 3</div>
+                </div>
+                <div class="bg-white rounded-lg p-6 flex items-center justify-center shadow hover:shadow-md transition h-24">
+                    <div class="text-gray-400 font-bold text-sm text-center">شريك 4</div>
+                </div>
+                <div class="bg-white rounded-lg p-6 flex items-center justify-center shadow hover:shadow-md transition h-24">
+                    <div class="text-gray-400 font-bold text-sm text-center">شريك 5</div>
+                </div>
+                <div class="bg-white rounded-lg p-6 flex items-center justify-center shadow hover:shadow-md transition h-24">
+                    <div class="text-gray-400 font-bold text-sm text-center">شريك 6</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <h4 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                        <span>مؤسسة الأمل</span>
+                    </h4>
+                    <p class="text-gray-400 leading-relaxed mb-4">
+                        نعمل منذ 20 عاماً على خدمة الإنسانية وتقديم يد العون للمحتاجين في أكثر من 30 دولة حول العالم.
+                    </p>
+                    <div class="flex gap-3">
+                        <a href="#" aria-label="فيسبوك" class="bg-gray-800 hover:bg-primary p-2 rounded-lg transition">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="#" aria-label="تويتر" class="bg-gray-800 hover:bg-primary p-2 rounded-lg transition">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                        </a>
+                        <a href="#" aria-label="انستغرام" class="bg-gray-800 hover:bg-primary p-2 rounded-lg transition">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg>
+                        </a>
+                        <a href="#" aria-label="يوتيوب" class="bg-gray-800 hover:bg-primary p-2 rounded-lg transition">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-4">روابط سريعة</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">من نحن</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">رؤيتنا ورسالتنا</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">التقارير السنوية</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">الشفافية المالية</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">فريق العمل</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">الشهادات والجوائز</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-4">طرق التبرع</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">تبرع مباشر</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">التبرع الشهري</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">التحويل البنكي</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">الزكاة والصدقات</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">الوقف الخيري</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">الأسئلة الشائعة</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-4">تواصل معنا</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>المملكة العربية السعودية<br>الرياض، حي الملز</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                            </svg>
+                            <span dir="ltr">+966 11 234 5678</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                            </svg>
+                            <span>info@hope-charity.org</span>
+                        </li>
+                    </ul>
+                    <div class="mt-6">
+                        <h5 class="font-bold mb-2 text-sm">اشترك في نشرتنا البريدية</h5>
+                        <form class="flex gap-2">
+                            <input type="email" placeholder="بريدك الإلكتروني" class="flex-1 px-3 py-2 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:border-primary text-sm">
+                            <button type="submit" class="bg-primary hover:bg-primary-dark px-4 py-2 rounded-lg font-bold transition text-sm">
+                                اشترك
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-gray-400 text-sm">
+                    <p>© 2024 مؤسسة الأمل الخيرية. جميع الحقوق محفوظة.</p>
+                    <div class="flex gap-6">
+                        <a href="#" class="hover:text-white transition">سياسة الخصوصية</a>
+                        <a href="#" class="hover:text-white transition">الشروط والأحكام</a>
+                        <a href="#" class="hover:text-white transition">سياسة الاسترداد</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
+</body>
+</html>
