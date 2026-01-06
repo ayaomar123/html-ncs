@@ -1,0 +1,780 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>منصة تبرعات | صفحة هبوط</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap');
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+        }
+    </style>
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#6D28D9",
+                        primarySoft: "#F3E8FF",
+                        cta: "#EF4444",
+                        ink: "#111827",
+                        muted: "#6B7280",
+                    },
+                    boxShadow: {
+                        soft: "0 10px 30px rgba(17,24,39,0.08)",
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        /* smooth focus ring for keyboard users */
+        :focus-visible {
+            outline: none;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-900 antialiased">
+    <!-- Skip link -->
+    <a href="#main"
+        class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:right-4 focus:z-[100] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:shadow-soft focus:ring-2 focus:ring-primary">
+        تخطَّ إلى المحتوى
+    </a>
+
+
+    <!-- 2) Main navbar -->
+    <nav class="sticky top-0 z-40 border-b border-gray-100 bg-white/90 backdrop-blur">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between py-4">
+                <!-- Logo -->
+                <a href="#"
+                    class="flex items-center gap-3 focus-visible:ring-2 focus-visible:ring-primary rounded-lg px-1">
+                    <div class="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-primary to-purple-400 text-white shadow-soft"
+                        aria-hidden="true">
+                        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 21s-7-4.35-9.2-9A6.2 6.2 0 0 1 12 4a6.2 6.2 0 0 1 9.2 8c-2.2 4.65-9.2 9-9.2 9Z"
+                                fill="currentColor" />
+                        </svg>
+                    </div>
+                    <div class="leading-tight">
+                        <p class="text-base font-extrabold text-ink">مؤسسة العطاء</p>
+                        <p class="text-xs text-muted">نحو أثرٍ مستدام</p>
+                    </div>
+                </a>
+
+                <!-- Desktop links -->
+                <div class="hidden lg:flex items-center gap-6">
+                    <a href="index.html"
+                        class="text-sm font-semibold text-gray-700 hover:text-primary transition focus-visible:ring-2 focus-visible:ring-primary rounded-md px-1">
+                        الرئيسية
+                    </a>
+
+                    <a href="about_us.html"
+                        class="text-sm font-semibold text-gray-700 hover:text-primary transition focus-visible:ring-2 focus-visible:ring-primary rounded-md px-1">
+                        من نحن
+                    </a>
+                    <a href="projects.html"
+                        class="text-sm font-semibold text-gray-700 hover:text-primary transition focus-visible:ring-2 focus-visible:ring-primary rounded-md px-1">
+                        مشاريعنا
+                    </a>
+                    <a href="donate.html"
+                        class="text-sm font-semibold text-gray-700 hover:text-primary transition focus-visible:ring-2 focus-visible:ring-primary rounded-md px-1">
+                        الكفالات
+                    </a>
+                    <a href="work.html"
+                        class="text-sm font-semibold text-gray-700 hover:text-primary transition focus-visible:ring-2 focus-visible:ring-primary rounded-md px-1">
+                        حملاتنا
+                    </a>
+                    <a href="stories.html"
+                        class="text-sm font-semibold text-gray-700 hover:text-primary transition focus-visible:ring-2 focus-visible:ring-primary rounded-md px-1">
+                        قصص النجاح
+                    </a>
+
+                    <a href="contact.html"
+                        class="text-sm font-semibold text-gray-700 hover:text-primary transition focus-visible:ring-2 focus-visible:ring-primary rounded-md px-1">
+                        تواصل
+                    </a>
+                </div>
+
+                <!-- Actions -->
+                <div class="flex items-center gap-2">
+                    <button type="button" aria-label="بحث"
+                        class="hidden sm:inline-flex items-center justify-center rounded-lg border border-gray-200 p-2 text-gray-700 transition hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-primary">
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M11 19a8 8 0 1 1 0-16 8 8 0 0 1 0 16Z" stroke="currentColor" stroke-width="1.7" />
+                            <path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+                        </svg>
+                    </button>
+
+                    <a href="#donate"
+                        class="inline-flex items-center justify-center rounded-xl bg-cta px-4 py-2.5 text-sm font-extrabold text-white shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-primary">
+                        تبرع الآن
+                    </a>
+
+                    <!-- Mobile hamburger -->
+                    <button type="button" aria-label="فتح القائمة"
+                        class="lg:hidden inline-flex items-center justify-center rounded-lg border border-gray-200 p-2 text-gray-700 transition hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-primary"
+                        id="menuBtn">
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile dropdown -->
+            <div id="mobileMenu" class="lg:hidden hidden pb-4">
+                <div class="rounded-2xl border border-gray-100 bg-white p-3 shadow-soft">
+                    <div class="grid gap-1">
+                        <a href="#"
+                            class="rounded-lg px-3 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-primary">الرئيسية</a>
+                        <a href="#projects"
+                            class="rounded-lg px-3 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-primary">المشاريع</a>
+                        <a href="#sponsorships"
+                            class="rounded-lg px-3 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-primary">الكفالات</a>
+                        <a href="#campaigns"
+                            class="rounded-lg px-3 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-primary">الحملات</a>
+                        <a href="#stories"
+                            class="rounded-lg px-3 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-primary">قصص
+                            النجاح</a>
+                        <a href="#about"
+                            class="rounded-lg px-3 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-primary">من
+                            نحن</a>
+                        <a href="#contact"
+                            class="rounded-lg px-3 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-primary">تواصل</a>
+                    </div>
+
+                    <div class="mt-3 flex flex-col gap-2">
+                        <a href="#donate"
+                            class="rounded-xl bg-primary px-4 py-2.5 text-center text-sm font-extrabold text-white transition hover:-translate-y-0.5 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-primary">
+                            تصفّح فرص التبرع
+                        </a>
+                        <a href="#login"
+                            class="rounded-xl border border-gray-200 px-4 py-2.5 text-center text-sm font-bold text-gray-800 transition hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-primary">
+                            تسجيل الدخول
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main -->
+    <main id="main">
+        <!-- Put new content -->
+        <section class="relative overflow-hidden">
+            <div class="absolute inset-0">
+                <img src="https://picsum.photos/seed/hero1/1920/900" alt="hero" class="h-full w-full object-cover" />
+                <div class="absolute inset-0 bg-gradient-to-l from-black/75 via-black/40 to-black/10"></div>
+            </div>
+
+            <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="min-h-[320px] sm:min-h-[420px] lg:min-h-[520px] flex items-center">
+                    <div class="ms-auto max-w-xl text-right text-white">
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black leading-[1.2]">
+                            ماذا نفعل
+                        </h1>
+                        <p class="mt-3 text-sm sm:text-base text-white/85 leading-7">
+                            استكشف العمل الذي نقوم به والمناطق التي نعمل بها ومشاريعنا الجارية.
+                        </p>
+
+                        <div class="mt-6 flex flex-col sm:flex-row gap-3 sm:justify-end">
+                            <a href="#sectors"
+                                class="inline-flex items-center justify-center rounded-xl bg-primary px-6 py-3 text-sm font-extrabold text-white shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-white">
+                                مشاريعنا حسب المنطقة
+                            </a>
+                            <a href="#sectors"
+                                class="inline-flex items-center justify-center rounded-xl border border-white/25 bg-white/10 px-6 py-3 text-sm font-extrabold text-white transition hover:bg-white/15 focus-visible:ring-2 focus-visible:ring-white">
+                                عملنا حسب القطاع
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4) INTRO (نصين مثل الصورة) -->
+        <section class="bg-white">
+            <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+                <div class="grid gap-8 lg:grid-cols-12 items-start">
+                    <div class="lg:col-span-6 text-right">
+                        <h2 class="text-2xl sm:text-3xl font-black text-primary">
+                            نحن نقدّم الإغاثة الطارئة للأسر الضعيفة
+                            ونعمل على تعزيز المجتمعات المحلية
+                            من خلال تعزيز رعاية الأطفال ودعم سبل العيش المستدامة.
+                        </h2>
+                    </div>
+                    <div class="lg:col-span-6 text-right text-sm sm:text-base leading-8 text-gray-700">
+                        <p>
+                            نهضة مشاريعنا إلى تطوير الوصول إلى التعليم والمياه النظيفة، فضلًا عن تحسين المرافق الصحية
+                            وممارسات
+                            النظافة.
+                        </p>
+                        <p class="mt-4">
+                            نهجنا يشمل مجالات مختلفة: الأغذية والتغذية، الحماية، الصحة، المياه والصرف الصحي، التعليم،
+                            وسبل
+                            العيش.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5) SECTORS (قائمة يمين + محتوى يسار + سلايدر داخلي) -->
+        <section id="sectors" class="bg-white">
+            <div class="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+
+                <div class="text-center">
+                    <h3 class="text-2xl sm:text-3xl font-black text-primary">اختر قطاعاً لاستعرض مشاريعنا الخاصة به</h3>
+                    <p class="mt-2 text-sm text-gray-600">
+                        خلال 33 عاماً ساعدت حملاتنا الأسر في غزة والضفة وغيرها عبر مشاريع متنوعة.
+                    </p>
+                </div>
+
+                <div class="mt-10 grid gap-6 lg:grid-cols-12">
+                    <!-- RIGHT: sector list -->
+                    <aside class="lg:col-span-4">
+                        <div class="rounded-2xl border border-gray-100 bg-white shadow-soft overflow-hidden">
+                            <div class="bg-primary px-5 py-4 text-white text-right font-extrabold">
+                                القطاعات
+                            </div>
+
+                            <nav class="divide-y divide-gray-100" aria-label="قائمة القطاعات">
+                                <!-- buttons injected by JS -->
+                                <div id="sectorList"></div>
+                            </nav>
+                        </div>
+                    </aside>
+
+                    <!-- LEFT: content -->
+                    <div class="lg:col-span-8">
+                        <div class="rounded-2xl border border-gray-100 bg-white shadow-soft p-6 sm:p-8">
+                            <div class="flex items-start justify-between gap-4">
+                                <div class="text-right">
+                                    <h4 id="sectorTitle" class="text-xl sm:text-2xl font-black text-primary">—</h4>
+                                    <p id="sectorDesc" class="mt-2 text-sm text-gray-700 leading-7">—</p>
+                                </div>
+                                <div class="hidden sm:flex items-center gap-2">
+                                    <span
+                                        class="inline-flex items-center justify-center rounded-xl bg-primarySoft px-3 py-2 text-xs font-bold text-primary">
+                                        مشاريع نشطة
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- icons grid (slide content) -->
+                            <div class="mt-6">
+                                <div id="sectorCards" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"></div>
+                            </div>
+
+                            <!-- inner slider controls -->
+                            <div class="mt-8 flex items-center justify-between">
+                                <button id="sectorPrev"
+                                    class="inline-flex items-center justify-center rounded-xl border border-gray-200 bg-white px-4 py-2 text-sm font-extrabold text-gray-800 transition hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-primary"
+                                    type="button" aria-label="السابق">
+                                    السابق
+                                </button>
+
+                                <div id="sectorDots" class="flex items-center gap-2"></div>
+
+                                <button id="sectorNext"
+                                    class="inline-flex items-center justify-center rounded-xl border border-gray-200 bg-white px-4 py-2 text-sm font-extrabold text-gray-800 transition hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-primary"
+                                    type="button" aria-label="التالي">
+                                    التالي
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 11) Footer -->
+        <footer id="contact" class="bg-gray-900 text-gray-100">
+            <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+                <div class="grid gap-8 lg:grid-cols-12">
+                    <!-- Brand -->
+                    <div class="lg:col-span-4">
+                        <div class="flex items-center gap-3">
+                            <div class="grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br from-primary to-purple-400 text-white shadow-soft"
+                                aria-hidden="true">
+                                <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none">
+                                    <path
+                                        d="M12 21s-7-4.35-9.2-9A6.2 6.2 0 0 1 12 4a6.2 6.2 0 0 1 9.2 8c-2.2 4.65-9.2 9-9.2 9Z"
+                                        fill="currentColor" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-lg font-black">مؤسسة العطاء</p>
+                                <p class="text-xs text-gray-300">شفافية • أثر • كرامة</p>
+                            </div>
+                        </div>
+
+                        <p class="mt-4 text-sm leading-7 text-gray-300">
+                            نربط المتبرعين بفرص دعم موثوقة، ونقدّم تقارير توضح أثر مساهماتهم. ساعدنا لنصل لأكبر عدد من
+                            المحتاجين.
+                        </p>
+
+                        <div class="mt-5 flex items-center gap-2">
+                            <a href="#" aria-label="فيسبوك"
+                                class="rounded-lg bg-white/10 p-2 text-gray-200 transition hover:bg-white/15 focus-visible:ring-2 focus-visible:ring-primary">
+                                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path
+                                        d="M14 8h3V5h-3c-1.657 0-3 1.343-3 3v3H8v3h3v6h3v-6h3l1-3h-4V8c0-.552.448-1 1-1Z"
+                                        fill="currentColor" />
+                                </svg>
+                            </a>
+                            <a href="#" aria-label="تويتر"
+                                class="rounded-lg bg-white/10 p-2 text-gray-200 transition hover:bg-white/15 focus-visible:ring-2 focus-visible:ring-primary">
+                                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path
+                                        d="M19 7.5c.01.14.01.28 0 .42C19 13 14.97 18 7.6 18c-2.02 0-3.9-.6-5.5-1.63.28.03.56.04.85.04 1.68 0 3.23-.58 4.46-1.55-1.57-.03-2.9-1.08-3.35-2.52.22.04.44.07.67.07.32 0 .64-.04.94-.12-1.64-.34-2.87-1.8-2.87-3.57v-.04c.48.27 1.03.44 1.62.46A3.58 3.58 0 0 1 3.3 4.5c1.8 2.25 4.5 3.73 7.55 3.89a3.66 3.66 0 0 1-.1-.82 3.58 3.58 0 0 1 6.2-2.46c.7-.14 1.36-.4 1.95-.75-.23.72-.72 1.33-1.35 1.71.62-.08 1.2-.24 1.75-.48-.42.62-.93 1.17-1.55 1.62Z"
+                                        fill="currentColor" />
+                                </svg>
+                            </a>
+                            <a href="#" aria-label="انستغرام"
+                                class="rounded-lg bg-white/10 p-2 text-gray-200 transition hover:bg-white/15 focus-visible:ring-2 focus-visible:ring-primary">
+                                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z"
+                                        stroke="currentColor" stroke-width="1.7" />
+                                    <path d="M12 16a4 4 0 1 0-4-4 4 4 0 0 0 4 4Z" stroke="currentColor"
+                                        stroke-width="1.7" />
+                                    <path d="M17.5 6.5h.01" stroke="currentColor" stroke-width="3.2"
+                                        stroke-linecap="round" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Quick links -->
+                    <div class="lg:col-span-2">
+                        <h3 class="text-sm font-extrabold text-white">روابط سريعة</h3>
+                        <ul class="mt-4 space-y-2 text-sm text-gray-300">
+                            <li><a class="hover:underline focus-visible:ring-2 focus-visible:ring-primary rounded-md px-1"
+                                    href="#projects">المشاريع</a></li>
+                            <li><a class="hover:underline focus-visible:ring-2 focus-visible:ring-primary rounded-md px-1"
+                                    href="#campaigns">الحملات</a></li>
+                            <li><a class="hover:underline focus-visible:ring-2 focus-visible:ring-primary rounded-md px-1"
+                                    href="#sponsorships">الكفالات</a></li>
+                            <li><a class="hover:underline focus-visible:ring-2 focus-visible:ring-primary rounded-md px-1"
+                                    href="#stories">قصص النجاح</a></li>
+                            <li><a class="hover:underline focus-visible:ring-2 focus-visible:ring-primary rounded-md px-1"
+                                    href="#about">من نحن</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact -->
+                    <div class="lg:col-span-3">
+                        <h3 class="text-sm font-extrabold text-white">تواصل</h3>
+                        <div class="mt-4 space-y-3 text-sm text-gray-300">
+                            <p class="flex items-center gap-2">
+                                <span
+                                    class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 text-white"
+                                    aria-hidden="true">
+                                    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M22 16.5v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.8.3 1.6.6 2.3a2 2 0 0 1-.5 2.1L8 9.2a16 16 0 0 0 6 6l1.1-1.1a2 2 0 0 1 2.1-.5c.7.3 1.5.5 2.3.6A2 2 0 0 1 22 16.5Z"
+                                            stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </span>
+                                <span>هاتف: <span class="font-bold text-white">+970 599 000 000</span></span>
+                            </p>
+
+                            <p class="flex items-center gap-2">
+                                <span
+                                    class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 text-white"
+                                    aria-hidden="true">
+                                    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none">
+                                        <path d="M4 6h16v12H4V6Z" stroke="currentColor" stroke-width="1.7" />
+                                        <path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.7"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </span>
+                                <span>البريد: <span class="font-bold text-white">support@alataa.org</span></span>
+                            </p>
+
+                            <p class="flex items-center gap-2">
+                                <span
+                                    class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 text-white"
+                                    aria-hidden="true">
+                                    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none">
+                                        <path d="M12 21s7-4 7-10a7 7 0 1 0-14 0c0 6 7 10 7 10Z" stroke="currentColor"
+                                            stroke-width="1.7" />
+                                        <path d="M12 11.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" stroke="currentColor"
+                                            stroke-width="1.7" />
+                                    </svg>
+                                </span>
+                                <span>العنوان: <span class="font-bold text-white">فلسطين • غزة</span></span>
+                            </p>
+                        </div>
+
+                        <div class="mt-5">
+                            <a href="#donate"
+                                class="inline-flex w-full items-center justify-center rounded-xl bg-cta px-5 py-3 text-sm font-extrabold text-white shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-primary">
+                                تبرع الآن
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Newsletter -->
+                    <div class="lg:col-span-3">
+                        <h3 class="text-sm font-extrabold text-white">نشرة بريدية</h3>
+                        <p class="mt-4 text-sm leading-7 text-gray-300">
+                            اشترك لتصلك آخر الحملات والتقارير وقصص الأثر — مرة واحدة أسبوعيًا.
+                        </p>
+
+                        <form class="mt-4 space-y-3" aria-label="نموذج الاشتراك في النشرة البريدية">
+                            <label class="sr-only" for="newsletterEmail">البريد الإلكتروني</label>
+                            <input id="newsletterEmail" type="email" placeholder="اكتب بريدك الإلكتروني"
+                                class="w-full rounded-xl border border-white/10 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-gray-300 shadow-sm transition focus:border-primary focus:ring-2 focus:ring-primary/40" />
+                            <button type="submit"
+                                class="w-full rounded-xl bg-primary px-5 py-3 text-sm font-extrabold text-white shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-primary">
+                                اشترك الآن
+                            </button>
+                            <p class="text-xs text-gray-400">بالاشتراك، أنت توافق على استقبال رسائلنا. يمكنك الإلغاء في
+                                أي وقت.</p>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="mt-10 border-t border-white/10 pt-6">
+                    <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                        <p class="text-xs text-gray-400">
+                            © <span id="year"></span> مؤسسة العطاء — جميع الحقوق محفوظة.
+                        </p>
+                        <div class="flex flex-wrap items-center gap-3 text-xs text-gray-400">
+                            <a href="#"
+                                class="hover:underline focus-visible:ring-2 focus-visible:ring-primary rounded-md px-1">سياسة
+                                الخصوصية</a>
+                            <span class="text-gray-600">•</span>
+                            <a href="#"
+                                class="hover:underline focus-visible:ring-2 focus-visible:ring-primary rounded-md px-1">الشروط
+                                والأحكام</a>
+                            <span class="text-gray-600">•</span>
+                            <a href="#"
+                                class="hover:underline focus-visible:ring-2 focus-visible:ring-primary rounded-md px-1">الأسئلة
+                                الشائعة</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Simple JS (allowed) -->
+    <script>
+        // year
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+        // mobile menu toggle
+        const menuBtn = document.getElementById("menuBtn");
+        const mobileMenu = document.getElementById("mobileMenu");
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener("click", () => {
+                mobileMenu.classList.toggle("hidden");
+                const expanded = !mobileMenu.classList.contains("hidden");
+                menuBtn.setAttribute("aria-label", expanded ? "إغلاق القائمة" : "فتح القائمة");
+            });
+        }
+    </script>
+
+    <script>
+        // ====== SECTORS DATA + UI ======
+        const sectorsData = [
+            {
+                id: "orphans",
+                title: "رعاية الأطفال وكفالة الأيتام",
+                desc: "تساعد كفالة الأيتام وتقديم الرعاية والتعليم والدعم النفسي والاجتماعي لضمان حياة كريمة للأطفال.",
+                count: 19,
+                slides: [
+                    {
+                        items: [
+                            { label: "كفالة أيتام فلسطين السنوية", icon: "🧒" },
+                            { label: "حملة جوار", icon: "🤝" },
+                            { label: "كفالة أيتام غزة", icon: "🌿" },
+                            { label: "إيواء أطفال الشوارع", icon: "🏠" },
+                            { label: "يوم المرح في قرية النور", icon: "🎈" },
+                            { label: "رعاية أطفال في باكستان", icon: "📚" },
+                        ]
+                    },
+                    {
+                        items: [
+                            { label: "دعم تعليم الأيتام", icon: "🎓" },
+                            { label: "حقيبة مدرسية", icon: "🎒" },
+                            { label: "عيادة نفسية متنقلة", icon: "🧠" },
+                            { label: "دعم غذائي للأطفال", icon: "🍎" },
+                            { label: "لباس الشتاء", icon: "🧥" },
+                            { label: "أنشطة ترفيهية", icon: "🎨" },
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "livelihood",
+                title: "سبل العيش الكريم",
+                desc: "تمكين الأسر عبر مشاريع مدرة للدخل وتدريب مهني ودعم صغير لإنشاء أعمال مستدامة.",
+                count: 25,
+                slides: [
+                    {
+                        items: [
+                            { label: "مشاريع صغيرة للنساء", icon: "👩‍💼" },
+                            { label: "معدات مهنية", icon: "🧰" },
+                            { label: "تدريب حرفي", icon: "🪡" },
+                            { label: "دعم مزارعين", icon: "🌾" },
+                            { label: "سلال بذور", icon: "🌱" },
+                            { label: "منح تشغيل", icon: "💼" },
+                        ]
+                    },
+                    {
+                        items: [
+                            { label: "تأهيل ورش عمل", icon: "🏗️" },
+                            { label: "تسويق منتجات", icon: "📦" },
+                            { label: "إرشاد مالي", icon: "📊" },
+                            { label: "شبكات دعم", icon: "🧑‍🤝‍🧑" },
+                            { label: "قروض حسنة", icon: "💳" },
+                            { label: "منح أدوات", icon: "🛠️" },
+                        ]
+                    },
+                ]
+            },
+            {
+                id: "education",
+                title: "التعليم",
+                desc: "دعم المدارس والطلاب بالمنح، الحقائب، والمستلزمات التعليمية، وتهيئة بيئة تعلم آمنة.",
+                count: 11,
+                slides: [
+                    {
+                        items: [
+                            { label: "منح تعليمية", icon: "🎓" },
+                            { label: "ترميم مدارس", icon: "🏫" },
+                            { label: "قرطاسية", icon: "✏️" },
+                            { label: "دروس تقوية", icon: "📘" },
+                            { label: "مكتبات صفية", icon: "📚" },
+                            { label: "حقيبة مدرسية", icon: "🎒" },
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "emergency",
+                title: "الإغاثة الطارئة",
+                desc: "استجابة عاجلة للأزمات: غذاء، دواء، إيواء، واحتياجات أساسية للأسر المتضررة.",
+                count: 30,
+                slides: [
+                    {
+                        items: [
+                            { label: "سلال غذائية", icon: "🥫" },
+                            { label: "مساعدات نقدية", icon: "💵" },
+                            { label: "بطانيات وشتاء", icon: "🧣" },
+                            { label: "طرود صحية", icon: "🧼" },
+                            { label: "إيواء مؤقت", icon: "⛺" },
+                            { label: "مياه شرب", icon: "💧" },
+                        ]
+                    },
+                    {
+                        items: [
+                            { label: "مستلزمات أطفال", icon: "🍼" },
+                            { label: "أدوية أساسية", icon: "💊" },
+                            { label: "دعم طوارئ", icon: "🚑" },
+                            { label: "كفالة أسرة", icon: "👨‍👩‍👧‍👦" },
+                            { label: "وجبات ساخنة", icon: "🍲" },
+                            { label: "مراكز توزيع", icon: "📍" },
+                        ]
+                    },
+                ]
+            },
+            {
+                id: "food",
+                title: "الأمن الغذائي",
+                desc: "تحسين وصول الأسر للغذاء عبر سلال غذائية، مطابخ مجتمعية، ودعم التغذية.",
+                count: 17,
+                slides: [
+                    {
+                        items: [
+                            { label: "مطبخ خيري", icon: "🍲" },
+                            { label: "سلال غذائية", icon: "🥫" },
+                            { label: "تغذية أطفال", icon: "🧃" },
+                            { label: "وجبات مدرسية", icon: "🍎" },
+                            { label: "قوافل دعم", icon: "🚚" },
+                            { label: "سلال طوارئ", icon: "📦" },
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "wash",
+                title: "الماء والصرف الصحي",
+                desc: "توفير مياه نظيفة ودعم مرافق الصرف الصحي وممارسات النظافة لتحسين الصحة العامة.",
+                count: 12,
+                slides: [
+                    {
+                        items: [
+                            { label: "خزانات مياه", icon: "🛢️" },
+                            { label: "محطات تنقية", icon: "💧" },
+                            { label: "شبكات صرف", icon: "🧱" },
+                            { label: "حملات نظافة", icon: "🧼" },
+                            { label: "مراحيض صحية", icon: "🚻" },
+                            { label: "توعية صحية", icon: "📣" },
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "health",
+                title: "الصحة والطب",
+                desc: "دعم العيادات، الأدوية، الحملات الطبية، وتوفير خدمات علاجية للأكثر احتياجاً.",
+                count: 14,
+                slides: [
+                    {
+                        items: [
+                            { label: "عيادات متنقلة", icon: "🚐" },
+                            { label: "أدوية", icon: "💊" },
+                            { label: "حملات فحص", icon: "🩺" },
+                            { label: "مستلزمات طبية", icon: "🧰" },
+                            { label: "دعم عمليات", icon: "🏥" },
+                            { label: "توعية صحية", icon: "📣" },
+                        ]
+                    }
+                ]
+            },
+        ];
+
+        const sectorList = document.getElementById("sectorList");
+        const sectorTitle = document.getElementById("sectorTitle");
+        const sectorDesc = document.getElementById("sectorDesc");
+        const sectorCards = document.getElementById("sectorCards");
+        const sectorDots = document.getElementById("sectorDots");
+        const sectorPrev = document.getElementById("sectorPrev");
+        const sectorNext = document.getElementById("sectorNext");
+
+        let activeSectorIndex = 0;
+        let activeSlideIndex = 0;
+
+        function renderSectorList() {
+            if (!sectorList) return;
+            sectorList.innerHTML = "";
+
+            sectorsData.forEach((s, i) => {
+                const btn = document.createElement("button");
+                btn.type = "button";
+                btn.className =
+                    "w-full text-right px-5 py-4 flex items-center justify-between gap-3 transition focus-visible:ring-2 focus-visible:ring-primary " +
+                    (i === activeSectorIndex ? "bg-primarySoft text-primary font-extrabold" : "bg-white text-gray-800 hover:bg-gray-50 font-bold");
+                btn.setAttribute("aria-current", i === activeSectorIndex ? "true" : "false");
+
+                btn.innerHTML = `
+            <span class="flex items-center gap-2">
+              <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl ${i === activeSectorIndex ? "bg-white" : "bg-gray-50"}">
+                <span class="text-lg">✦</span>
+              </span>
+              <span>${s.title}</span>
+            </span>
+            <span class="text-xs ${i === activeSectorIndex ? "text-primary" : "text-gray-500"}">(${s.count})</span>
+          `;
+
+                btn.addEventListener("click", () => {
+                    activeSectorIndex = i;
+                    activeSlideIndex = 0;
+                    renderSectorList();
+                    renderSectorContent();
+                });
+
+                sectorList.appendChild(btn);
+            });
+        }
+
+        function renderDots(total) {
+            if (!sectorDots) return;
+            sectorDots.innerHTML = "";
+            for (let i = 0; i < total; i++) {
+                const d = document.createElement("button");
+                d.type = "button";
+                d.className =
+                    "h-2.5 w-2.5 rounded-full transition focus-visible:ring-2 focus-visible:ring-primary " +
+                    (i === activeSlideIndex ? "bg-primary" : "bg-gray-300");
+                d.setAttribute("aria-label", `انتقال إلى الصفحة ${i + 1}`);
+                d.addEventListener("click", () => {
+                    activeSlideIndex = i;
+                    renderSectorContent(true);
+                });
+                sectorDots.appendChild(d);
+            }
+        }
+
+        function renderSectorContent(animate = false) {
+            const s = sectorsData[activeSectorIndex];
+            if (!s) return;
+
+            if (sectorTitle) sectorTitle.textContent = s.title;
+            if (sectorDesc) sectorDesc.textContent = s.desc;
+
+            const slide = s.slides[Math.min(activeSlideIndex, s.slides.length - 1)];
+            if (!slide || !sectorCards) return;
+
+            // simple fade animation with Tailwind classes (no CSS file)
+            if (animate) {
+                sectorCards.classList.add("opacity-0", "translate-y-1");
+                setTimeout(() => {
+                    sectorCards.classList.remove("opacity-0", "translate-y-1");
+                }, 10);
+            }
+
+            sectorCards.className = "grid gap-4 sm:grid-cols-2 lg:grid-cols-3 transition-all duration-300";
+
+            sectorCards.innerHTML = slide.items.map((it) => `
+          <div class="rounded-2xl border border-gray-100 bg-white p-4 hover:shadow-soft transition">
+            <div class="flex items-center justify-between">
+              <div class="text-right">
+                <p class="text-sm font-extrabold text-gray-900">${it.label}</p>
+                <p class="mt-1 text-xs text-gray-500">اضغط للتفاصيل</p>
+              </div>
+              <div class="grid h-11 w-11 place-items-center rounded-xl bg-primarySoft text-primary text-xl">
+                ${it.icon}
+              </div>
+            </div>
+          </div>
+        `).join("");
+
+            renderDots(s.slides.length);
+
+            // disable buttons if only 1 slide
+            const disabled = s.slides.length <= 1;
+            sectorPrev.disabled = disabled;
+            sectorNext.disabled = disabled;
+            sectorPrev.classList.toggle("opacity-50", disabled);
+            sectorNext.classList.toggle("opacity-50", disabled);
+        }
+
+        sectorPrev?.addEventListener("click", () => {
+            const s = sectorsData[activeSectorIndex];
+            if (!s) return;
+            activeSlideIndex = (activeSlideIndex - 1 + s.slides.length) % s.slides.length;
+            renderSectorContent(true);
+        });
+
+        sectorNext?.addEventListener("click", () => {
+            const s = sectorsData[activeSectorIndex];
+            if (!s) return;
+            activeSlideIndex = (activeSlideIndex + 1) % s.slides.length;
+            renderSectorContent(true);
+        });
+
+        // init
+        renderSectorList();
+        renderSectorContent();
+    </script>
+
+</body>
+
+</html>
