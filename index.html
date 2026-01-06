@@ -2,1812 +2,1151 @@
 <html lang="ar" dir="rtl">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>منصة تبرعات | صفحة هبوط</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap');
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>منصة تبرعات | صفحة واحدة (Tailwind CDN)</title>
 
-        body {
-            font-family: 'Tajawal', sans-serif;
-        }
-    </style>
-    <!-- Tailwind CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font (optional). Replace/remove if you want system fonts only. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
 
-    <!-- Tailwind config -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: "#6D28D9",
-                        primarySoft: "#F3E8FF",
-                        cta: "#EF4444",
-                        ink: "#111827",
-                        muted: "#6B7280",
-                    },
-                    boxShadow: {
-                        soft: "0 10px 30px rgba(17,24,39,0.08)",
-                    },
-                },
-            },
-        };
-    </script>
-    <style>
-        /* smooth focus ring for keyboard users */
-        :focus-visible {
-            outline: none;
-        }
-    </style>
+  <!-- Tailwind CDN (no build tools) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind config (in-page) -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#6D28D9",
+            primarySoft: "#F3E8FF",
+            cta: "#EF4444",
+            ink: "#0B1220",
+            muted: "#6B7280",
+          },
+          boxShadow: {
+            soft: "0 12px 34px rgba(15, 23, 42, 0.08)",
+          },
+          fontFamily: {
+            sans: ["Tajawal", "ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "Roboto", "Arial", "Noto Sans Arabic", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
 </head>
 
-<body class="bg-white text-gray-900 antialiased">
-    <!-- Skip link -->
-    <a href="#main"
-        class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:right-4 focus:z-[100] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:shadow-soft focus:ring-2 focus:ring-primary">
-        تخطَّ إلى المحتوى
-    </a>
+<body class="min-h-screen bg-white font-sans text-slate-900 antialiased">
+  <!-- Skip link (accessibility) -->
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:right-4 focus:z-[100] focus:rounded-xl focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-bold focus:shadow-soft focus:ring-2 focus:ring-primary">
+    تخطَّ إلى المحتوى
+  </a>
 
-    <!-- 1) Top header bar -->
-    <header class="border-b border-gray-100 bg-white">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-wrap items-center justify-between gap-3 py-2 text-xs text-gray-600">
-                <!-- Quick links -->
-                <div class="flex items-center gap-2 sm:gap-3">
-                    <a href="#donate"
-                        class="inline-flex items-center gap-1 rounded-md px-2 py-1 transition hover:bg-gray-50 hover:text-gray-900 focus-visible:ring-2 focus-visible:ring-primary">
-                        <span class="font-semibold text-cta">تبرع الآن</span>
-                    </a>
-                    <span class="hidden sm:inline text-gray-300">|</span>
-                    <a href="#contact"
-                        class="inline-flex items-center gap-1 rounded-md px-2 py-1 transition hover:bg-gray-50 hover:text-gray-900 focus-visible:ring-2 focus-visible:ring-primary">
-                        تواصل معنا
-                    </a>
-                    <span class="hidden sm:inline text-gray-300">|</span>
-                    <a href="#login"
-                        class="inline-flex items-center gap-1 rounded-md px-2 py-1 transition hover:bg-gray-50 hover:text-gray-900 focus-visible:ring-2 focus-visible:ring-primary">
-                        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                            <path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Z" stroke="currentColor" stroke-width="1.7"
-                                stroke-linecap="round" />
-                            <path d="M4 20a8 8 0 0 1 16 0" stroke="currentColor" stroke-width="1.7"
-                                stroke-linecap="round" />
-                        </svg>
-                        تسجيل الدخول
-                    </a>
-                </div>
+  <!-- =========================
+       Sticky Navbar
+       - Changes style on scroll (JS)
+       - Mobile menu toggle (JS)
+       ========================= -->
+  <header class="sticky top-0 z-50">
+    <div id="navShell" class="border-b border-transparent bg-white/75 backdrop-blur supports-[backdrop-filter]:bg-white/60 transition-colors">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8" aria-label="التنقل الرئيسي">
+        <!-- Logo (replace brand name here) -->
+        <a href="#" class="group inline-flex items-center gap-3 rounded-xl px-1 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+          <span class="grid h-10 w-10 place-items-center rounded-2xl bg-gradient-to-br from-primary to-purple-400 text-white shadow-soft">
+            <!-- Inline icon (no external images) -->
+            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 21s-7-4.35-9.2-9A6.2 6.2 0 0 1 12 4a6.2 6.2 0 0 1 9.2 8c-2.2 4.65-9.2 9-9.2 9Z" fill="currentColor" />
+            </svg>
+          </span>
+          <span class="leading-tight">
+            <span class="block text-sm font-extrabold text-ink group-hover:text-primary transition">مؤسسة العطاء</span>
+            <span class="block text-xs text-muted">نحو أثرٍ مستدام</span>
+          </span>
+        </a>
 
-                <!-- Social + language -->
-                <div class="flex items-center gap-2 sm:gap-3">
-                    <button type="button" aria-label="تبديل اللغة"
-                        class="inline-flex items-center gap-1 rounded-md border border-gray-200 px-2 py-1 text-gray-700 transition hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-primary">
-                        <span class="font-semibold">AR</span>
-                        <span class="text-gray-400">/</span>
-                        <span class="text-gray-500">EN</span>
-                    </button>
-
-                    <div class="h-5 w-px bg-gray-200"></div>
-
-                    <div class="flex items-center gap-1">
-                        <a href="#" aria-label="فيسبوك"
-                            class="rounded-md p-1.5 text-gray-600 transition hover:bg-gray-50 hover:text-gray-900 focus-visible:ring-2 focus-visible:ring-primary">
-                            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                <path d="M14 8h3V5h-3c-1.657 0-3 1.343-3 3v3H8v3h3v6h3v-6h3l1-3h-4V8c0-.552.448-1 1-1Z"
-                                    fill="currentColor" />
-                            </svg>
-                        </a>
-                        <a href="#" aria-label="تويتر"
-                            class="rounded-md p-1.5 text-gray-600 transition hover:bg-gray-50 hover:text-gray-900 focus-visible:ring-2 focus-visible:ring-primary">
-                            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                <path
-                                    d="M19 7.5c.01.14.01.28 0 .42C19 13 14.97 18 7.6 18c-2.02 0-3.9-.6-5.5-1.63.28.03.56.04.85.04 1.68 0 3.23-.58 4.46-1.55-1.57-.03-2.9-1.08-3.35-2.52.22.04.44.07.67.07.32 0 .64-.04.94-.12-1.64-.34-2.87-1.8-2.87-3.57v-.04c.48.27 1.03.44 1.62.46A3.58 3.58 0 0 1 3.3 4.5c1.8 2.25 4.5 3.73 7.55 3.89a3.66 3.66 0 0 1-.1-.82 3.58 3.58 0 0 1 6.2-2.46c.7-.14 1.36-.4 1.95-.75-.23.72-.72 1.33-1.35 1.71.62-.08 1.2-.24 1.75-.48-.42.62-.93 1.17-1.55 1.62Z"
-                                    fill="currentColor" />
-                            </svg>
-                        </a>
-                        <a href="#" aria-label="انستغرام"
-                            class="rounded-md p-1.5 text-gray-600 transition hover:bg-gray-50 hover:text-gray-900 focus-visible:ring-2 focus-visible:ring-primary">
-                            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z"
-                                    stroke="currentColor" stroke-width="1.7" />
-                                <path d="M12 16a4 4 0 1 0-4-4 4 4 0 0 0 4 4Z" stroke="currentColor"
-                                    stroke-width="1.7" />
-                                <path d="M17.5 6.5h.01" stroke="currentColor" stroke-width="3.2"
-                                    stroke-linecap="round" />
-                            </svg>
-                        </a>
-                    </div>
-
-                    <div class="hidden md:flex items-center gap-2 rounded-md bg-primarySoft px-3 py-1 text-gray-700">
-                        <svg class="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                            <path
-                                d="M6.5 4h11A2.5 2.5 0 0 1 20 6.5v11A2.5 2.5 0 0 1 17.5 20h-11A2.5 2.5 0 0 1 4 17.5v-11A2.5 2.5 0 0 1 6.5 4Z"
-                                stroke="currentColor" stroke-width="1.7" />
-                            <path d="M8 9h8M8 12h8M8 15h6" stroke="currentColor" stroke-width="1.7"
-                                stroke-linecap="round" />
-                        </svg>
-                        <span>روابط سريعة: تقارير • شفافية • الأسئلة الشائعة</span>
-                    </div>
-                </div>
-            </div>
+        <!-- Desktop links -->
+        <div class="hidden lg:flex items-center gap-6">
+          <a href="#projects" class="text-sm font-bold text-slate-700 hover:text-primary transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg px-1">المشاريع</a>
+          <a href="#impact" class="text-sm font-bold text-slate-700 hover:text-primary transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg px-1">الأثر</a>
+          <a href="#testimonials" class="text-sm font-bold text-slate-700 hover:text-primary transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg px-1">آراء المتبرعين</a>
+          <a href="#partners" class="text-sm font-bold text-slate-700 hover:text-primary transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg px-1">شركاؤنا</a>
+          <a href="#faq" class="text-sm font-bold text-slate-700 hover:text-primary transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg px-1">الأسئلة الشائعة</a>
+          <a href="#contact" class="text-sm font-bold text-slate-700 hover:text-primary transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg px-1">تواصل</a>
         </div>
-    </header>
 
-    <!-- 2) Main navbar -->
-    <nav class="sticky top-0 z-40 border-b border-gray-100 bg-white/90 backdrop-blur">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between py-4">
-                <!-- Logo -->
-                <a href="#"
-                    class="flex items-center gap-3 focus-visible:ring-2 focus-visible:ring-primary rounded-lg px-1">
-                    <div class="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-primary to-purple-400 text-white shadow-soft"
-                        aria-hidden="true">
-                        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 21s-7-4.35-9.2-9A6.2 6.2 0 0 1 12 4a6.2 6.2 0 0 1 9.2 8c-2.2 4.65-9.2 9-9.2 9Z"
-                                fill="currentColor" />
-                        </svg>
-                    </div>
-                    <div class="leading-tight">
-                        <p class="text-base font-extrabold text-ink">مؤسسة العطاء</p>
-                        <p class="text-xs text-muted">نحو أثرٍ مستدام</p>
-                    </div>
+        <!-- Actions -->
+        <div class="flex items-center gap-2">
+          <a href="#donate" class="inline-flex items-center justify-center rounded-xl bg-cta px-4 py-2.5 text-sm font-extrabold text-white shadow-soft transition will-change-transform hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+            تبرع الآن
+          </a>
+
+          <button id="menuBtn" type="button" class="lg:hidden inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white p-2 text-slate-800 shadow-sm transition hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" aria-controls="mobileMenu" aria-expanded="false" aria-label="فتح القائمة">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Mobile menu -->
+      <div id="mobileMenu" class="lg:hidden hidden border-t border-slate-100 bg-white">
+        <div class="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8">
+          <div class="grid gap-1">
+            <a href="#projects" class="rounded-xl px-3 py-2 text-sm font-bold text-slate-900 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">المشاريع</a>
+            <a href="#impact" class="rounded-xl px-3 py-2 text-sm font-bold text-slate-900 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">الأثر</a>
+            <a href="#testimonials" class="rounded-xl px-3 py-2 text-sm font-bold text-slate-900 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">آراء المتبرعين</a>
+            <a href="#partners" class="rounded-xl px-3 py-2 text-sm font-bold text-slate-900 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">شركاؤنا</a>
+            <a href="#faq" class="rounded-xl px-3 py-2 text-sm font-bold text-slate-900 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">الأسئلة الشائعة</a>
+            <a href="#contact" class="rounded-xl px-3 py-2 text-sm font-bold text-slate-900 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">تواصل</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- =========================
+         HERO (No external images)
+         Replace the text content here.
+         ========================= -->
+    <section class="relative overflow-hidden">
+      <!-- Background shapes (pure Tailwind + SVG) -->
+      <div class="absolute inset-0">
+        <div class="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900"></div>
+        <div class="absolute inset-0 opacity-[0.10]">
+          <svg class="h-full w-full" viewBox="0 0 1200 600" fill="none" aria-hidden="true" preserveAspectRatio="none">
+            <defs>
+              <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                <path d="M 40 0 L 0 0 0 40" stroke="white" stroke-opacity="0.35" stroke-width="1" />
+              </pattern>
+            </defs>
+            <rect width="1200" height="600" fill="url(#grid)" />
+          </svg>
+        </div>
+        <div class="absolute -right-32 -top-24 h-72 w-72 rounded-full bg-primary/30 blur-3xl" aria-hidden="true"></div>
+        <div class="absolute -left-24 bottom-0 h-80 w-80 rounded-full bg-purple-400/25 blur-3xl" aria-hidden="true"></div>
+      </div>
+
+      <div class="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <div class="grid gap-10 lg:grid-cols-12 lg:items-center">
+          <!-- Text -->
+          <div class="lg:col-span-7">
+            <div data-reveal class="opacity-0 translate-y-3 transition duration-700">
+              <p class="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs font-extrabold text-white ring-1 ring-white/15">
+                <span class="inline-flex h-2 w-2 rounded-full bg-cta" aria-hidden="true"></span>
+                <!-- Replace: campaign label -->
+                حملة عاجلة • تبرعك يصل بسرعة وبشفافية
+              </p>
+
+              <h1 class="mt-5 text-3xl font-black leading-[1.2] text-white sm:text-4xl lg:text-5xl">
+                <!-- Replace: main hero headline -->
+                معًا نصنع فرقًا حقيقيًا
+                <span class="mt-2 block text-purple-200">تبرعك اليوم يمنح الأمان والغذاء والتعليم</span>
+              </h1>
+
+              <p class="mt-5 max-w-2xl text-sm leading-7 text-slate-200 sm:text-base">
+                <!-- Replace: hero description -->
+                منصة تبرعات سريعة وسهلة. اختر مشروعًا وابدأ المساهمة خلال ثوانٍ، مع تقارير دورية وقياس أثر واضح.
+              </p>
+
+              <div class="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <a href="#donate" class="inline-flex items-center justify-center rounded-xl bg-cta px-6 py-3 text-sm font-extrabold text-white shadow-soft transition will-change-transform hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">
+                  ابدأ التبرع الآن
                 </a>
+                <a href="#projects" class="inline-flex items-center justify-center rounded-xl border border-white/25 bg-white/10 px-6 py-3 text-sm font-extrabold text-white transition hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">
+                  تصفّح المشاريع
+                </a>
+              </div>
 
-                <!-- Desktop links -->
-                <div class="hidden lg:flex items-center gap-6">
-                    <a href="#"
-                        class="text-sm font-semibold text-gray-700 hover:text-primary transition focus-visible:ring-2 focus-visible:ring-primary rounded-md px-1">
-                        الرئيسية
-                    </a>
-                    <a href="#projects"
-                        class="text-sm font-semibold text-gray-700 hover:text-primary transition focus-visible:ring-2 focus-visible:ring-primary rounded-md px-1">
-                        المشاريع
-                    </a>
-                    <a href="#sponsorships"
-                        class="text-sm font-semibold text-gray-700 hover:text-primary transition focus-visible:ring-2 focus-visible:ring-primary rounded-md px-1">
-                        الكفالات
-                    </a>
-                    <a href="#campaigns"
-                        class="text-sm font-semibold text-gray-700 hover:text-primary transition focus-visible:ring-2 focus-visible:ring-primary rounded-md px-1">
-                        الحملات
-                    </a>
-                    <a href="#stories"
-                        class="text-sm font-semibold text-gray-700 hover:text-primary transition focus-visible:ring-2 focus-visible:ring-primary rounded-md px-1">
-                        قصص النجاح
-                    </a>
-                    <a href="#about"
-                        class="text-sm font-semibold text-gray-700 hover:text-primary transition focus-visible:ring-2 focus-visible:ring-primary rounded-md px-1">
-                        من نحن
-                    </a>
-                    <a href="#contact"
-                        class="text-sm font-semibold text-gray-700 hover:text-primary transition focus-visible:ring-2 focus-visible:ring-primary rounded-md px-1">
-                        تواصل
-                    </a>
+              <dl class="mt-10 grid gap-4 sm:grid-cols-3">
+                <div class="rounded-2xl bg-white/10 p-4 ring-1 ring-white/15">
+                  <dt class="text-xs font-bold text-slate-200">الشفافية</dt>
+                  <dd class="mt-1 text-sm font-extrabold text-white">تقارير شهرية</dd>
                 </div>
-
-                <!-- Actions -->
-                <div class="flex items-center gap-2">
-                    <button type="button" aria-label="بحث"
-                        class="hidden sm:inline-flex items-center justify-center rounded-lg border border-gray-200 p-2 text-gray-700 transition hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-primary">
-                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                            <path d="M11 19a8 8 0 1 1 0-16 8 8 0 0 1 0 16Z" stroke="currentColor" stroke-width="1.7" />
-                            <path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
-                        </svg>
-                    </button>
-
-                    <a href="#donate"
-                        class="inline-flex items-center justify-center rounded-xl bg-cta px-4 py-2.5 text-sm font-extrabold text-white shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-primary">
-                        تبرع الآن
-                    </a>
-
-                    <!-- Mobile hamburger -->
-                    <button type="button" aria-label="فتح القائمة"
-                        class="lg:hidden inline-flex items-center justify-center rounded-lg border border-gray-200 p-2 text-gray-700 transition hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-primary"
-                        id="menuBtn">
-                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8"
-                                stroke-linecap="round" />
-                        </svg>
-                    </button>
+                <div class="rounded-2xl bg-white/10 p-4 ring-1 ring-white/15">
+                  <dt class="text-xs font-bold text-slate-200">السرعة</dt>
+                  <dd class="mt-1 text-sm font-extrabold text-white">تنفيذ سريع</dd>
                 </div>
+                <div class="rounded-2xl bg-white/10 p-4 ring-1 ring-white/15">
+                  <dt class="text-xs font-bold text-slate-200">الأثر</dt>
+                  <dd class="mt-1 text-sm font-extrabold text-white">قياس واضح</dd>
+                </div>
+              </dl>
             </div>
+          </div>
 
-            <!-- Mobile dropdown -->
-            <div id="mobileMenu" class="lg:hidden hidden pb-4">
-                <div class="rounded-2xl border border-gray-100 bg-white p-3 shadow-soft">
-                    <div class="grid gap-1">
-                        <a href="#"
-                            class="rounded-lg px-3 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-primary">الرئيسية</a>
-                        <a href="#projects"
-                            class="rounded-lg px-3 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-primary">المشاريع</a>
-                        <a href="#sponsorships"
-                            class="rounded-lg px-3 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-primary">الكفالات</a>
-                        <a href="#campaigns"
-                            class="rounded-lg px-3 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-primary">الحملات</a>
-                        <a href="#stories"
-                            class="rounded-lg px-3 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-primary">قصص
-                            النجاح</a>
-                        <a href="#about"
-                            class="rounded-lg px-3 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-primary">من
-                            نحن</a>
-                        <a href="#contact"
-                            class="rounded-lg px-3 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-primary">تواصل</a>
-                    </div>
-
-                    <div class="mt-3 flex flex-col gap-2">
-                        <a href="#donate"
-                            class="rounded-xl bg-primary px-4 py-2.5 text-center text-sm font-extrabold text-white transition hover:-translate-y-0.5 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-primary">
-                            تصفّح فرص التبرع
-                        </a>
-                        <a href="#login"
-                            class="rounded-xl border border-gray-200 px-4 py-2.5 text-center text-sm font-bold text-gray-800 transition hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-primary">
-                            تسجيل الدخول
-                        </a>
-                    </div>
+          <!-- Donation widget -->
+          <aside id="donate" class="lg:col-span-5">
+            <div data-reveal class="opacity-0 translate-y-3 transition duration-700 delay-100 rounded-3xl bg-white p-5 shadow-soft ring-1 ring-slate-200/60 sm:p-6">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <h2 class="text-lg font-black text-ink">تبرع الآن</h2>
+                  <p class="mt-1 text-sm text-muted">اختر النوع والمبلغ بسهولة.</p>
                 </div>
+                <span class="rounded-2xl bg-primarySoft px-3 py-1.5 text-xs font-extrabold text-primary">آمن 100%</span>
+              </div>
+
+              <!-- Replace: donation type tabs -->
+              <div class="mt-4 grid grid-cols-2 gap-2" role="tablist" aria-label="نوع التبرع">
+                <button type="button" class="donate-tab rounded-2xl bg-primary px-3 py-2.5 text-sm font-extrabold text-white shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" data-tab="once" role="tab" aria-selected="true">
+                  مرة واحدة
+                </button>
+                <button type="button" class="donate-tab rounded-2xl border border-slate-200 bg-white px-3 py-2.5 text-sm font-extrabold text-slate-900 transition hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" data-tab="monthly" role="tab" aria-selected="false">
+                  شهريًا
+                </button>
+              </div>
+
+              <!-- Amount pills -->
+              <div class="mt-4">
+                <p class="text-sm font-extrabold text-slate-900">اختر المبلغ</p>
+                <div class="mt-2 grid grid-cols-4 gap-2">
+                  <button type="button" class="amount-pill rounded-2xl border border-slate-200 bg-white px-3 py-2 text-sm font-extrabold text-slate-900 shadow-sm transition will-change-transform hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" data-amount="100">100</button>
+                  <button type="button" class="amount-pill rounded-2xl border border-slate-200 bg-white px-3 py-2 text-sm font-extrabold text-slate-900 shadow-sm transition will-change-transform hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" data-amount="200">200</button>
+                  <button type="button" class="amount-pill rounded-2xl border border-slate-200 bg-white px-3 py-2 text-sm font-extrabold text-slate-900 shadow-sm transition will-change-transform hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" data-amount="500">500</button>
+                  <button type="button" class="amount-pill rounded-2xl border border-slate-200 bg-white px-3 py-2 text-sm font-extrabold text-slate-900 shadow-sm transition will-change-transform hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" data-amount="1000">1000</button>
+                </div>
+              </div>
+
+              <!-- Custom amount -->
+              <div class="mt-4">
+                <label for="customAmount" class="text-sm font-extrabold text-slate-900">أو أدخل مبلغًا مخصصًا</label>
+                <div class="mt-2 flex items-center gap-2">
+                  <div class="relative flex-1">
+                    <span class="pointer-events-none absolute inset-y-0 right-3 inline-flex items-center text-sm font-extrabold text-slate-500">₪</span>
+                    <input id="customAmount" type="number" inputmode="numeric" min="1" placeholder="مثال: 250" class="w-full rounded-2xl border border-slate-200 bg-white py-3 pr-8 pl-3 text-sm font-semibold text-slate-900 placeholder:text-slate-400 shadow-sm transition focus:border-primary focus:ring-2 focus:ring-primary/30" aria-label="مبلغ التبرع المخصص" />
+                  </div>
+                  <button type="button" id="clearAmount" class="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-extrabold text-slate-900 transition hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" aria-label="مسح المبلغ">
+                    مسح
+                  </button>
+                </div>
+                <p class="mt-2 text-xs text-slate-500">يمكنك تخصيص تبرعك لمشروع محدد لاحقًا.</p>
+              </div>
+
+              <div class="mt-5">
+                <button type="button" id="donateBtn" class="w-full rounded-2xl bg-cta px-5 py-3.5 text-sm font-extrabold text-white shadow-soft transition will-change-transform hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" aria-label="زر تبرع الآن">
+                  تبرع الآن
+                </button>
+                <div class="mt-3 rounded-2xl bg-primarySoft px-4 py-3 text-xs font-bold text-slate-800">
+                  <!-- Replace: helper note -->
+                  تأكيد فوري عبر البريد • تتبع أثر التبرع
+                </div>
+              </div>
             </div>
+          </aside>
         </div>
-    </nav>
+      </div>
+    </section>
 
-    <!-- Main -->
-    <main id="main">
-        <!-- 3) Hero -->
-        <section class="relative overflow-hidden">
-            <!-- Background -->
-            <div class="absolute inset-0">
-                <img src="https://picsum.photos/seed/charity-hero/1920/980" alt="صورة خلفية لمشروع إنساني"
-                    class="h-full w-full object-cover" />
-                <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/55 to-black/70"></div>
-                <div class="absolute -left-20 top-10 h-72 w-72 rounded-full bg-primary/25 blur-3xl" aria-hidden="true">
-                </div>
-                <div class="absolute -right-24 bottom-10 h-80 w-80 rounded-full bg-purple-400/25 blur-3xl"
-                    aria-hidden="true"></div>
+    <!-- =========================
+         Impact / Features
+         ========================= -->
+    <section id="impact" class="bg-white">
+      <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+        <div class="max-w-2xl">
+          <h2 data-reveal class="opacity-0 translate-y-3 transition duration-700 text-2xl font-black text-ink sm:text-3xl">لماذا يتبرع الناس عبر منصتنا؟</h2>
+          <p data-reveal class="opacity-0 translate-y-3 transition duration-700 delay-75 mt-3 text-sm text-muted sm:text-base">تجربة بسيطة، شفافة، ومصممة لتكون سريعة على الهاتف وسهلة للجميع.</p>
+        </div>
+
+        <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <!-- Feature Card (replace content) -->
+          <article data-reveal class="opacity-0 translate-y-3 transition duration-700 rounded-3xl border border-slate-200/70 bg-white p-6 shadow-sm hover:shadow-soft hover:-translate-y-0.5 will-change-transform">
+            <div class="flex items-start gap-4">
+              <span class="grid h-12 w-12 place-items-center rounded-2xl bg-primarySoft text-primary">
+                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 3l8 4v6c0 5-3.4 9.4-8 10-4.6-.6-8-5-8-10V7l8-4Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                  <path d="M9 12l2 2 4-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+              <div>
+                <h3 class="text-base font-extrabold text-slate-900">شفافية وتقارير</h3>
+                <p class="mt-1 text-sm leading-7 text-slate-600">تحديثات واضحة عن التنفيذ ومؤشرات قياس أثر يمكن مشاركتها.</p>
+              </div>
+            </div>
+          </article>
+
+          <article data-reveal class="opacity-0 translate-y-3 transition duration-700 delay-75 rounded-3xl border border-slate-200/70 bg-white p-6 shadow-sm hover:shadow-soft hover:-translate-y-0.5 will-change-transform">
+            <div class="flex items-start gap-4">
+              <span class="grid h-12 w-12 place-items-center rounded-2xl bg-primarySoft text-primary">
+                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M4 12a8 8 0 1 0 16 0 8 8 0 0 0-16 0Z" stroke="currentColor" stroke-width="1.8" />
+                  <path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                </svg>
+              </span>
+              <div>
+                <h3 class="text-base font-extrabold text-slate-900">تنفيذ سريع</h3>
+                <p class="mt-1 text-sm leading-7 text-slate-600">التركيز على الأولويات العاجلة مع إدارة فعّالة لسلسلة التوريد.</p>
+              </div>
+            </div>
+          </article>
+
+          <article data-reveal class="opacity-0 translate-y-3 transition duration-700 delay-150 rounded-3xl border border-slate-200/70 bg-white p-6 shadow-sm hover:shadow-soft hover:-translate-y-0.5 will-change-transform">
+            <div class="flex items-start gap-4">
+              <span class="grid h-12 w-12 place-items-center rounded-2xl bg-primarySoft text-primary">
+                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M7 11.5V9a5 5 0 0 1 10 0v2.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                  <path d="M6 11.5h12v7A2.5 2.5 0 0 1 15.5 21h-7A2.5 2.5 0 0 1 6 18.5v-7Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                  <path d="M12 15v2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                </svg>
+              </span>
+              <div>
+                <h3 class="text-base font-extrabold text-slate-900">دفع آمن</h3>
+                <p class="mt-1 text-sm leading-7 text-slate-600">تصميم يركز على الخصوصية وتجربة دفع واضحة مع رسائل تأكيد.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         Projects (simple, modern)
+         ========================= -->
+    <section id="projects" class="bg-slate-50">
+      <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <h2 data-reveal class="opacity-0 translate-y-3 transition duration-700 text-2xl font-black text-ink sm:text-3xl">مشاريع قابلة للدعم الآن</h2>
+            <p data-reveal class="opacity-0 translate-y-3 transition duration-700 delay-75 mt-2 text-sm text-muted"><!-- Replace: subtitle -->اختر مشروعًا وابدأ بالمساهمة خلال دقائق.</p>
+          </div>
+          <a href="#donate" class="inline-flex items-center justify-center rounded-xl bg-primary px-5 py-3 text-sm font-extrabold text-white shadow-soft transition will-change-transform hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+            تبرع للمشاريع
+          </a>
+        </div>
+
+        <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <!-- Project card (replace content) -->
+          <article data-reveal class="opacity-0 translate-y-3 transition duration-700 rounded-3xl border border-slate-200/70 bg-white p-6 shadow-sm hover:shadow-soft hover:-translate-y-0.5 will-change-transform">
+            <div class="flex items-start justify-between gap-4">
+              <div class="min-w-0">
+                <h3 class="text-base font-extrabold text-slate-900">سلال غذائية للأسر</h3>
+                <p class="mt-1 text-sm text-slate-600"><!-- Replace: summary -->دعم عاجل لتأمين احتياجات أسبوعين.</p>
+              </div>
+              <span class="shrink-0 rounded-2xl bg-primarySoft px-3 py-1 text-xs font-extrabold text-primary">150 ₪</span>
+            </div>
+            <div class="mt-5">
+              <div class="flex items-center justify-between text-xs font-bold text-slate-600">
+                <span>التقدم</span>
+                <span class="text-primary">68%</span>
+              </div>
+              <div class="mt-2 h-2 rounded-full bg-slate-100" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="68" aria-label="نسبة اكتمال تمويل المشروع">
+                <div class="h-2 rounded-full bg-gradient-to-l from-primary to-purple-400" style="width: 68%"></div>
+              </div>
+            </div>
+            <div class="mt-6 flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-500">آخر تحديث: هذا الأسبوع</span>
+              <a href="#donate" class="inline-flex items-center justify-center rounded-xl bg-cta px-4 py-2.5 text-xs font-extrabold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">تبرع</a>
+            </div>
+          </article>
+
+          <article data-reveal class="opacity-0 translate-y-3 transition duration-700 delay-75 rounded-3xl border border-slate-200/70 bg-white p-6 shadow-sm hover:shadow-soft hover:-translate-y-0.5 will-change-transform">
+            <div class="flex items-start justify-between gap-4">
+              <div class="min-w-0">
+                <h3 class="text-base font-extrabold text-slate-900">دواء وعلاج مزمن</h3>
+                <p class="mt-1 text-sm text-slate-600"><!-- Replace: summary -->توفير أدوية أساسية للحالات المستمرة.</p>
+              </div>
+              <span class="shrink-0 rounded-2xl bg-primarySoft px-3 py-1 text-xs font-extrabold text-primary">80 ₪</span>
+            </div>
+            <div class="mt-5">
+              <div class="flex items-center justify-between text-xs font-bold text-slate-600">
+                <span>التقدم</span>
+                <span class="text-primary">42%</span>
+              </div>
+              <div class="mt-2 h-2 rounded-full bg-slate-100" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="42" aria-label="نسبة اكتمال تمويل المشروع">
+                <div class="h-2 rounded-full bg-gradient-to-l from-primary to-purple-400" style="width: 42%"></div>
+              </div>
+            </div>
+            <div class="mt-6 flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-500">يشمل وصفات معتمدة</span>
+              <a href="#donate" class="inline-flex items-center justify-center rounded-xl bg-primary px-4 py-2.5 text-xs font-extrabold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">ساهم</a>
+            </div>
+          </article>
+
+          <article data-reveal class="opacity-0 translate-y-3 transition duration-700 delay-150 rounded-3xl border border-slate-200/70 bg-white p-6 shadow-sm hover:shadow-soft hover:-translate-y-0.5 will-change-transform">
+            <div class="flex items-start justify-between gap-4">
+              <div class="min-w-0">
+                <h3 class="text-base font-extrabold text-slate-900">حقائب مدرسية</h3>
+                <p class="mt-1 text-sm text-slate-600"><!-- Replace: summary -->حقيبة + قرطاسية لدعم العودة للمدرسة.</p>
+              </div>
+              <span class="shrink-0 rounded-2xl bg-primarySoft px-3 py-1 text-xs font-extrabold text-primary">110 ₪</span>
+            </div>
+            <div class="mt-5">
+              <div class="flex items-center justify-between text-xs font-bold text-slate-600">
+                <span>التقدم</span>
+                <span class="text-primary">81%</span>
+              </div>
+              <div class="mt-2 h-2 rounded-full bg-slate-100" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="81" aria-label="نسبة اكتمال تمويل المشروع">
+                <div class="h-2 rounded-full bg-gradient-to-l from-primary to-purple-400" style="width: 81%"></div>
+              </div>
+            </div>
+            <div class="mt-6 flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-500">برنامج التعليم</span>
+              <a href="#donate" class="inline-flex items-center justify-center rounded-xl bg-cta px-4 py-2.5 text-xs font-extrabold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">تبرع</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         Slider 1: Testimonials
+         Requirements:
+         - Autoplay, infinite loop, dots, arrows
+         - Swipe support, pause on hover, keyboard nav
+         - Accessible controls
+         ========================= -->
+    <section id="testimonials" class="bg-white">
+      <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <h2 data-reveal class="opacity-0 translate-y-3 transition duration-700 text-2xl font-black text-ink sm:text-3xl">آراء المتبرعين</h2>
+            <p data-reveal class="opacity-0 translate-y-3 transition duration-700 delay-75 mt-2 text-sm text-muted"><!-- Replace: subtitle -->تجارب حقيقية من مجتمع المتبرعين.</p>
+          </div>
+          <div class="hidden sm:block text-xs font-bold text-slate-500">اسحب على الهاتف • استخدم الأسهم على لوحة المفاتيح</div>
+        </div>
+
+        <!-- Slider root
+             - data-slider: JSON options
+             - data-slider-label: accessible label
+        -->
+        <div data-reveal class="opacity-0 translate-y-3 transition duration-700 delay-150 mt-8">
+          <section class="slider relative" data-slider-label="سلايدر آراء المتبرعين" data-slider='{"autoplay":true,"interval":4500,"loop":true,"step":"auto","items":1,"itemsMd":1,"itemsLg":1}'>
+            <div class="slider-viewport overflow-hidden rounded-3xl border border-slate-200/70 bg-white shadow-soft">
+              <div class="slider-track flex gap-4 transition-transform duration-500 ease-out will-change-transform touch-pan-y">
+                <!-- Slide (replace content) -->
+                <article class="slider-slide shrink-0 p-6 sm:p-8">
+                  <div class="flex items-start gap-4">
+                    <!-- Avatar placeholder (no external images) -->
+                    <div class="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-primarySoft text-primary">
+                      <span class="text-sm font-black">م</span>
+                    </div>
+                    <div class="min-w-0">
+                      <p class="text-sm leading-7 text-slate-700 sm:text-base">
+                        <!-- Replace: testimonial text -->
+                        “التجربة كانت سهلة جدًا على الهاتف، ووصلني تأكيد فوري. أكثر ما أعجبني هو التقارير الواضحة عن التنفيذ.”
+                      </p>
+                      <div class="mt-4">
+                        <p class="text-sm font-extrabold text-slate-900">محمد • متبرع شهري</p>
+                        <p class="text-xs font-bold text-slate-500">غزة</p>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="slider-slide shrink-0 p-6 sm:p-8">
+                  <div class="flex items-start gap-4">
+                    <div class="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-primarySoft text-primary">
+                      <span class="text-sm font-black">س</span>
+                    </div>
+                    <div class="min-w-0">
+                      <p class="text-sm leading-7 text-slate-700 sm:text-base">“اخترت مشروع التعليم، وكان من الرائع رؤية شريط التقدم والتحديثات. واجهة واضحة ومحترمة.”</p>
+                      <div class="mt-4">
+                        <p class="text-sm font-extrabold text-slate-900">سارة • متبرعة</p>
+                        <p class="text-xs font-bold text-slate-500">القدس</p>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="slider-slide shrink-0 p-6 sm:p-8">
+                  <div class="flex items-start gap-4">
+                    <div class="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-primarySoft text-primary">
+                      <span class="text-sm font-black">أ</span>
+                    </div>
+                    <div class="min-w-0">
+                      <p class="text-sm leading-7 text-slate-700 sm:text-base">“الدعم سريع، والأهم أن تجربة التبرع لا تحتوي على تعقيد. أتمنى إضافة المزيد من قصص النجاح.”</p>
+                      <div class="mt-4">
+                        <p class="text-sm font-extrabold text-slate-900">أحمد • متبرع</p>
+                        <p class="text-xs font-bold text-slate-500">رام الله</p>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </div>
             </div>
 
-            <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div class="grid items-center gap-8 py-10 sm:py-14 lg:grid-cols-12 lg:py-16">
-                    <!-- Hero text -->
-                    <div class="lg:col-span-7 text-white">
-                        <div
-                            class="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs font-semibold text-white ring-1 ring-white/15">
-                            <span class="inline-flex h-2 w-2 rounded-full bg-cta" aria-hidden="true"></span>
-                            حملة شتاء دافئ • تبرعك يصل سريعًا وبشفافية
-                        </div>
+            <!-- Slider controls (JS wires these) -->
+            <button type="button" class="slider-prev absolute top-1/2 right-3 -translate-y-1/2 rounded-2xl border border-slate-200 bg-white/95 p-2 text-slate-900 shadow-sm transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" aria-label="السابق">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M14 7l-5 5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+            <button type="button" class="slider-next absolute top-1/2 left-3 -translate-y-1/2 rounded-2xl border border-slate-200 bg-white/95 p-2 text-slate-900 shadow-sm transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" aria-label="التالي">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M10 7l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
 
-                        <h1 class="mt-4 text-3xl font-black leading-[1.25] sm:text-4xl lg:text-5xl">
-                            معًا نصنع فرقًا حقيقيًا
-                            <span class="block text-purple-200">تبرعك اليوم يمنح الأمان والغذاء والتعليم</span>
-                        </h1>
+            <div class="slider-dots mt-5 flex items-center justify-center gap-2" aria-label="مؤشرات السلايدر"></div>
+          </section>
+        </div>
+      </div>
+    </section>
 
-                        <p class="mt-4 max-w-2xl text-sm leading-7 text-gray-100/95 sm:text-base">
-                            نعمل على دعم الأسر الأكثر احتياجًا عبر برامج إغاثية وتنموية. اختر مشروعًا وابدأ مساهمتك
-                            بثوانٍ — مع تقارير دورية وقياس أثر واضح.
-                        </p>
+    <!-- =========================
+         Slider 2: Partners / Logos (multi-item)
+         ========================= -->
+    <section id="partners" class="bg-slate-50">
+      <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <h2 data-reveal class="opacity-0 translate-y-3 transition duration-700 text-2xl font-black text-ink sm:text-3xl">شركاؤنا</h2>
+            <p data-reveal class="opacity-0 translate-y-3 transition duration-700 delay-75 mt-2 text-sm text-muted"><!-- Replace: subtitle -->شعارات تجريبية — استبدلها لاحقًا بشعاراتك.</p>
+          </div>
+          <div class="hidden sm:block text-xs font-bold text-slate-500">سلايدر متعدد العناصر • يعمل بالسحب</div>
+        </div>
 
-                        <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
-                            <a href="#donate"
-                                class="inline-flex items-center justify-center rounded-xl bg-cta px-6 py-3 text-sm font-extrabold text-white shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-white">
-                                ابدأ التبرع الآن
-                            </a>
-                            <a href="#projects"
-                                class="inline-flex items-center justify-center rounded-xl border border-white/25 bg-white/10 px-6 py-3 text-sm font-extrabold text-white transition hover:bg-white/15 focus-visible:ring-2 focus-visible:ring-white">
-                                تصفّح المشاريع
-                            </a>
-
-                            <div class="mt-2 flex items-center gap-3 sm:mt-0 sm:mr-2">
-                                <div class="flex -space-x-2 rtl:space-x-reverse">
-                                    <img class="h-9 w-9 rounded-full border-2 border-white/60 object-cover"
-                                        src="https://picsum.photos/seed/a1/80/80" alt="متبرع 1" />
-                                    <img class="h-9 w-9 rounded-full border-2 border-white/60 object-cover"
-                                        src="https://picsum.photos/seed/a2/80/80" alt="متبرع 2" />
-                                    <img class="h-9 w-9 rounded-full border-2 border-white/60 object-cover"
-                                        src="https://picsum.photos/seed/a3/80/80" alt="متبرع 3" />
-                                </div>
-                                <div class="text-xs text-gray-100/90">
-                                    <p class="font-bold">+ 12,480</p>
-                                    <p class="text-gray-100/75">متبرع خلال هذا العام</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Stats chips -->
-                        <div class="mt-8 grid gap-3 sm:grid-cols-3">
-                            <div class="rounded-2xl bg-white/10 p-4 ring-1 ring-white/15">
-                                <p class="text-sm font-extrabold">شفافية وتقارير</p>
-                                <p class="mt-1 text-xs text-gray-100/80">تحديثات شهرية ومؤشرات أثر</p>
-                            </div>
-                            <div class="rounded-2xl bg-white/10 p-4 ring-1 ring-white/15">
-                                <p class="text-sm font-extrabold">دعم مستدام</p>
-                                <p class="mt-1 text-xs text-gray-100/80">برامج تعليم وتمكين</p>
-                            </div>
-                            <div class="rounded-2xl bg-white/10 p-4 ring-1 ring-white/15">
-                                <p class="text-sm font-extrabold">استجابة عاجلة</p>
-                                <p class="mt-1 text-xs text-gray-100/80">غذاء • دواء • إيواء</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Donation widget -->
-                    <aside id="donate" class="lg:col-span-5">
-                        <div class="rounded-2xl bg-white p-5 shadow-soft ring-1 ring-gray-100 sm:p-6">
-                            <div class="flex items-start justify-between gap-4">
-                                <div>
-                                    <h2 class="text-lg font-black text-ink">تبرع الآن</h2>
-                                    <p class="mt-1 text-sm text-muted">اختر نوع التبرع والمبلغ بسهولة.</p>
-                                </div>
-                                <div class="rounded-xl bg-primarySoft px-3 py-2 text-xs font-bold text-primary">
-                                    آمن 100%
-                                </div>
-                            </div>
-
-                            <!-- Tabs -->
-                            <div class="mt-4 grid grid-cols-2 gap-2" role="tablist" aria-label="نوع التبرع">
-                                <button type="button" role="tab" aria-selected="true" data-tab="once"
-                                    class="donate-tab rounded-xl bg-primary px-3 py-2.5 text-sm font-extrabold text-white shadow-sm transition focus-visible:ring-2 focus-visible:ring-primary">
-                                    مرة واحدة
-                                </button>
-                                <button type="button" role="tab" aria-selected="false" data-tab="monthly"
-                                    class="donate-tab rounded-xl border border-gray-200 bg-white px-3 py-2.5 text-sm font-extrabold text-gray-800 transition hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-primary">
-                                    شهرياً
-                                </button>
-                            </div>
-
-                            <!-- Amount pills -->
-                            <div class="mt-4">
-                                <p class="text-sm font-bold text-gray-800">اختر المبلغ</p>
-                                <div class="mt-2 grid grid-cols-4 gap-2">
-                                    <button type="button"
-                                        class="amount-pill rounded-xl border border-gray-200 bg-white px-3 py-2 text-sm font-extrabold text-gray-800 transition hover:-translate-y-0.5 hover:shadow-md focus-visible:ring-2 focus-visible:ring-primary"
-                                        data-amount="100">
-                                        100
-                                    </button>
-                                    <button type="button"
-                                        class="amount-pill rounded-xl border border-gray-200 bg-white px-3 py-2 text-sm font-extrabold text-gray-800 transition hover:-translate-y-0.5 hover:shadow-md focus-visible:ring-2 focus-visible:ring-primary"
-                                        data-amount="200">
-                                        200
-                                    </button>
-                                    <button type="button"
-                                        class="amount-pill rounded-xl border border-gray-200 bg-white px-3 py-2 text-sm font-extrabold text-gray-800 transition hover:-translate-y-0.5 hover:shadow-md focus-visible:ring-2 focus-visible:ring-primary"
-                                        data-amount="500">
-                                        500
-                                    </button>
-                                    <button type="button"
-                                        class="amount-pill rounded-xl border border-gray-200 bg-white px-3 py-2 text-sm font-extrabold text-gray-800 transition hover:-translate-y-0.5 hover:shadow-md focus-visible:ring-2 focus-visible:ring-primary"
-                                        data-amount="1000">
-                                        1000
-                                    </button>
-                                </div>
-                            </div>
-
-                            <!-- Custom amount -->
-                            <div class="mt-4">
-                                <label for="customAmount" class="text-sm font-bold text-gray-800">أو أدخل مبلغًا
-                                    مخصصًا</label>
-                                <div class="mt-2 flex items-center gap-2">
-                                    <div class="relative flex-1">
-                                        <span
-                                            class="pointer-events-none absolute inset-y-0 right-3 inline-flex items-center text-sm font-bold text-gray-500">₪</span>
-                                        <input id="customAmount" type="number" inputmode="numeric" min="1"
-                                            placeholder="مثال: 250"
-                                            class="w-full rounded-xl border border-gray-200 bg-white py-3 pr-8 pl-3 text-sm font-semibold text-gray-900 placeholder:text-gray-400 shadow-sm transition focus:border-primary focus:ring-2 focus:ring-primary/30"
-                                            aria-label="مبلغ التبرع المخصص" />
-                                    </div>
-                                    <button type="button" id="clearAmount"
-                                        class="rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm font-extrabold text-gray-800 transition hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-primary"
-                                        aria-label="مسح المبلغ">
-                                        مسح
-                                    </button>
-                                </div>
-                                <p class="mt-2 text-xs text-gray-500">
-                                    سيتم توجيه تبرعك لأكثر المشاريع احتياجًا ما لم تحدد مشروعًا بعينه.
-                                </p>
-                            </div>
-
-                            <!-- CTA -->
-                            <div class="mt-5">
-                                <button type="button" id="donateBtn"
-                                    class="w-full rounded-xl bg-cta px-5 py-3.5 text-sm font-extrabold text-white shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-primary"
-                                    aria-label="زر تبرع الآن">
-                                    تبرع الآن
-                                </button>
-
-                                <div class="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
-                                    <button type="button"
-                                        class="rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm font-extrabold text-gray-900 transition hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-primary"
-                                        aria-label="إهداء تبرع">
-                                        إهداء تبرع
-                                    </button>
-                                    <button type="button"
-                                        class="rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm font-extrabold text-gray-900 transition hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-primary"
-                                        aria-label="تبرع عبر البنك">
-                                        تبرع عبر البنك
-                                    </button>
-                                </div>
-
-                                <div
-                                    class="mt-4 flex flex-wrap items-center justify-between gap-2 rounded-xl bg-primarySoft px-4 py-3">
-                                    <div class="flex items-center gap-2 text-xs font-bold text-gray-800">
-                                        <svg class="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none"
-                                            aria-hidden="true">
-                                            <path d="M20 7l-8 8-4-4-4 4" stroke="currentColor" stroke-width="1.8"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                        <span>تأثير فوري • تأكيد عبر البريد</span>
-                                    </div>
-                                    <div class="flex items-center gap-1 text-xs text-gray-600">
-                                        <span class="font-extrabold text-primary">98%</span>
-                                        <span>معدل رضا المتبرعين</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </aside>
+        <div data-reveal class="opacity-0 translate-y-3 transition duration-700 delay-150 mt-8">
+          <section class="slider relative" data-slider-label="سلايدر الشركاء" data-slider='{"autoplay":true,"interval":2200,"loop":true,"step":"auto","items":2,"itemsSm":3,"itemsMd":4,"itemsLg":5}'>
+            <div class="slider-viewport overflow-hidden rounded-3xl border border-slate-200/70 bg-white shadow-soft">
+              <div class="slider-track flex gap-3 p-4 transition-transform duration-500 ease-out will-change-transform touch-pan-y">
+                <!-- Logo card (replace content). No external images; using inline SVG placeholders. -->
+                <div class="slider-slide shrink-0">
+                  <div class="grid h-20 place-items-center rounded-2xl border border-slate-200 bg-white shadow-sm">
+                    <svg class="h-7 w-28" viewBox="0 0 120 28" fill="none" aria-hidden="true">
+                      <rect x="1" y="1" width="118" height="26" rx="10" stroke="#CBD5E1" />
+                      <path d="M22 9h10v10H22V9Z" fill="#6D28D9" opacity="0.9" />
+                      <path d="M42 19V9h6.2c2.2 0 3.6 1.2 3.6 3 0 1.3-.7 2.3-1.8 2.7 1.4.4 2.3 1.5 2.3 3 0 2-1.5 3.3-3.9 3.3H42Zm3-6h3c1 0 1.6-.5 1.6-1.2S49 10.6 48 10.6h-3V13Zm0 5.1h3.4c1.1 0 1.8-.6 1.8-1.4s-.7-1.4-1.8-1.4H45V18.1Z" fill="#0B1220" />
+                    </svg>
+                  </div>
                 </div>
 
-                <!-- Carousel dots (static) -->
-                <div class="relative pb-8">
-                    <div class="flex items-center gap-2">
-                        <span class="h-2.5 w-2.5 rounded-full bg-white/85"></span>
-                        <span class="h-2 w-2 rounded-full bg-white/45"></span>
-                        <span class="h-2 w-2 rounded-full bg-white/45"></span>
-                        <span class="h-2 w-2 rounded-full bg-white/45"></span>
-                    </div>
+                <div class="slider-slide shrink-0">
+                  <div class="grid h-20 place-items-center rounded-2xl border border-slate-200 bg-white shadow-sm">
+                    <svg class="h-7 w-28" viewBox="0 0 120 28" fill="none" aria-hidden="true">
+                      <rect x="1" y="1" width="118" height="26" rx="10" stroke="#CBD5E1" />
+                      <circle cx="26" cy="14" r="6" fill="#EF4444" opacity="0.9" />
+                      <path d="M44 19V9h3v4h4V9h3v10h-3v-4h-4v4h-3Z" fill="#0B1220" />
+                      <path d="M60 19V9h3v10h-3Z" fill="#0B1220" />
+                    </svg>
+                  </div>
                 </div>
+
+                <div class="slider-slide shrink-0">
+                  <div class="grid h-20 place-items-center rounded-2xl border border-slate-200 bg-white shadow-sm">
+                    <svg class="h-7 w-28" viewBox="0 0 120 28" fill="none" aria-hidden="true">
+                      <rect x="1" y="1" width="118" height="26" rx="10" stroke="#CBD5E1" />
+                      <path d="M22 19l5-10h3l5 10h-3l-1-2h-5l-1 2h-3Zm6-4h3l-1.5-3.3L28 15Z" fill="#0B1220" />
+                      <path d="M44 19V9h7c2.1 0 3.6 1.4 3.6 3.4 0 2.1-1.5 3.5-3.6 3.5h-4V19h-3Zm3-5.5h3.6c.9 0 1.5-.5 1.5-1.2s-.6-1.2-1.5-1.2H47v2.4Z" fill="#0B1220" />
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="slider-slide shrink-0">
+                  <div class="grid h-20 place-items-center rounded-2xl border border-slate-200 bg-white shadow-sm">
+                    <svg class="h-7 w-28" viewBox="0 0 120 28" fill="none" aria-hidden="true">
+                      <rect x="1" y="1" width="118" height="26" rx="10" stroke="#CBD5E1" />
+                      <path d="M24 10h10v8H24v-8Z" fill="#6D28D9" opacity="0.25" />
+                      <path d="M44 19V9h3v10h-3Zm6 0V9h3l4 6V9h3v10h-3l-4-6v6h-3Z" fill="#0B1220" />
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="slider-slide shrink-0">
+                  <div class="grid h-20 place-items-center rounded-2xl border border-slate-200 bg-white shadow-sm">
+                    <svg class="h-7 w-28" viewBox="0 0 120 28" fill="none" aria-hidden="true">
+                      <rect x="1" y="1" width="118" height="26" rx="10" stroke="#CBD5E1" />
+                      <path d="M23 19V9h3v10h-3Zm6 0V9h3v8h5v2h-8Z" fill="#0B1220" />
+                      <path d="M84 9l-3.5 10h-3L74 9h3l2 6.6L81 9h3Z" fill="#EF4444" opacity="0.9" />
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="slider-slide shrink-0">
+                  <div class="grid h-20 place-items-center rounded-2xl border border-slate-200 bg-white shadow-sm">
+                    <svg class="h-7 w-28" viewBox="0 0 120 28" fill="none" aria-hidden="true">
+                      <rect x="1" y="1" width="118" height="26" rx="10" stroke="#CBD5E1" />
+                      <circle cx="26" cy="14" r="6" fill="#6D28D9" opacity="0.9" />
+                      <path d="M44 19V9h3v10h-3Zm6 0V9h7.5v2H53v2h4v2h-4v4h-3Z" fill="#0B1220" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
             </div>
-        </section>
 
-        <!-- 4) Two-column: Sponsorship -->
-        <section id="sponsorships" class="bg-white">
-            <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-                <div class="grid items-center gap-8 lg:grid-cols-12">
-                    <!-- Text (right) -->
-                    <div class="lg:col-span-7">
-                        <div
-                            class="inline-flex items-center gap-2 rounded-full bg-primarySoft px-4 py-2 text-xs font-extrabold text-primary">
-                            <span class="inline-flex h-2 w-2 rounded-full bg-primary" aria-hidden="true"></span>
-                            برنامج الكفالات
-                        </div>
+            <button type="button" class="slider-prev absolute top-1/2 right-3 -translate-y-1/2 rounded-2xl border border-slate-200 bg-white/95 p-2 text-slate-900 shadow-sm transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" aria-label="السابق">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M14 7l-5 5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+            <button type="button" class="slider-next absolute top-1/2 left-3 -translate-y-1/2 rounded-2xl border border-slate-200 bg-white/95 p-2 text-slate-900 shadow-sm transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" aria-label="التالي">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M10 7l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
 
-                        <h2 class="mt-4 text-2xl font-black text-ink sm:text-3xl">إذا كفلت فأنت تصنع أمل</h2>
-                        <p class="mt-3 text-sm leading-7 text-muted sm:text-base">
-                            الكفالة ليست رقمًا — هي قصة حياة تتغيّر. اختر كفالة طالب، أسرة، أو مريض، وسنرافقك بتقارير
-                            واضحة وصور توثيقية وأثر ملموس.
-                        </p>
+            <div class="slider-dots mt-5 flex items-center justify-center gap-2" aria-label="مؤشرات سلايدر الشركاء"></div>
+          </section>
+        </div>
+      </div>
+    </section>
 
-                        <ul class="mt-5 grid gap-3 sm:grid-cols-2">
-                            <li class="flex items-start gap-3 rounded-xl border border-gray-100 bg-white p-4 shadow-sm">
-                                <span
-                                    class="mt-0.5 inline-flex h-8 w-8 items-center justify-center rounded-xl bg-primarySoft text-primary"
-                                    aria-hidden="true">
-                                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none">
-                                        <path d="M12 3l8 4v6c0 5-3.4 9.4-8 10-4.6-.6-8-5-8-10V7l8-4Z"
-                                            stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
-                                        <path d="M9 12l2 2 4-5" stroke="currentColor" stroke-width="1.7"
-                                            stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </span>
-                                <div>
-                                    <p class="text-sm font-extrabold text-gray-900">تتبع وشفافية</p>
-                                    <p class="mt-1 text-xs text-gray-600">تقارير شهرية وأرقام واضحة للمصروفات.</p>
-                                </div>
-                            </li>
+    <!-- =========================
+         FAQ
+         ========================= -->
+    <section id="faq" class="bg-white">
+      <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+        <div class="max-w-2xl">
+          <h2 data-reveal class="opacity-0 translate-y-3 transition duration-700 text-2xl font-black text-ink sm:text-3xl">الأسئلة الشائعة</h2>
+          <p data-reveal class="opacity-0 translate-y-3 transition duration-700 delay-75 mt-2 text-sm text-muted"><!-- Replace: subtitle -->إجابات سريعة تساعدك قبل التبرع.</p>
+        </div>
 
-                            <li class="flex items-start gap-3 rounded-xl border border-gray-100 bg-white p-4 shadow-sm">
-                                <span
-                                    class="mt-0.5 inline-flex h-8 w-8 items-center justify-center rounded-xl bg-primarySoft text-primary"
-                                    aria-hidden="true">
-                                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none">
-                                        <path d="M4 12a8 8 0 1 0 16 0 8 8 0 0 0-16 0Z" stroke="currentColor"
-                                            stroke-width="1.7" />
-                                        <path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.7"
-                                            stroke-linecap="round" />
-                                    </svg>
-                                </span>
-                                <div>
-                                    <p class="text-sm font-extrabold text-gray-900">استجابة سريعة</p>
-                                    <p class="mt-1 text-xs text-gray-600">يصل الدعم للمستفيد خلال أيام قليلة.</p>
-                                </div>
-                            </li>
+        <div class="mt-8 grid gap-4">
+          <!-- FAQ item (replace content) -->
+          <details data-reveal class="opacity-0 translate-y-3 transition duration-700 rounded-3xl border border-slate-200/70 bg-white p-5 shadow-sm">
+            <summary class="cursor-pointer select-none text-sm font-extrabold text-slate-900 focus-visible:outline-none">هل تصلني تقارير بعد التبرع؟</summary>
+            <p class="mt-3 text-sm leading-7 text-slate-600">نعم، ستصلك رسالة تأكيد، ثم تحديثات دورية وفقًا لنوع المشروع والبرنامج.</p>
+          </details>
 
-                            <li class="flex items-start gap-3 rounded-xl border border-gray-100 bg-white p-4 shadow-sm">
-                                <span
-                                    class="mt-0.5 inline-flex h-8 w-8 items-center justify-center rounded-xl bg-primarySoft text-primary"
-                                    aria-hidden="true">
-                                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none">
-                                        <path d="M7 11.5V9a5 5 0 0 1 10 0v2.5" stroke="currentColor" stroke-width="1.7"
-                                            stroke-linecap="round" />
-                                        <path d="M6 11.5h12v7A2.5 2.5 0 0 1 15.5 21h-7A2.5 2.5 0 0 1 6 18.5v-7Z"
-                                            stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
-                                        <path d="M12 15v2" stroke="currentColor" stroke-width="1.7"
-                                            stroke-linecap="round" />
-                                    </svg>
-                                </span>
-                                <div>
-                                    <p class="text-sm font-extrabold text-gray-900">مدفوعات آمنة</p>
-                                    <p class="mt-1 text-xs text-gray-600">بوابات دفع موثوقة وحماية للبيانات.</p>
-                                </div>
-                            </li>
+          <details data-reveal class="opacity-0 translate-y-3 transition duration-700 delay-75 rounded-3xl border border-slate-200/70 bg-white p-5 shadow-sm">
+            <summary class="cursor-pointer select-none text-sm font-extrabold text-slate-900 focus-visible:outline-none">هل يمكنني إلغاء التبرع الشهري؟</summary>
+            <p class="mt-3 text-sm leading-7 text-slate-600">يمكنك الإلغاء في أي وقت. اجعل ذلك واضحًا في صفحة الحساب/الدفع لديك عند التطبيق الفعلي.</p>
+          </details>
 
-                            <li class="flex items-start gap-3 rounded-xl border border-gray-100 bg-white p-4 shadow-sm">
-                                <span
-                                    class="mt-0.5 inline-flex h-8 w-8 items-center justify-center rounded-xl bg-primarySoft text-primary"
-                                    aria-hidden="true">
-                                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none">
-                                        <path
-                                            d="M12 21s-7-4.35-9.2-9A6.2 6.2 0 0 1 12 4a6.2 6.2 0 0 1 9.2 8c-2.2 4.65-9.2 9-9.2 9Z"
-                                            stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
-                                    </svg>
-                                </span>
-                                <div>
-                                    <p class="text-sm font-extrabold text-gray-900">أثر إنساني</p>
-                                    <p class="mt-1 text-xs text-gray-600">كرامة المستفيد أولاً مع تمكين طويل الأمد.</p>
-                                </div>
-                            </li>
-                        </ul>
+          <details data-reveal class="opacity-0 translate-y-3 transition duration-700 delay-150 rounded-3xl border border-slate-200/70 bg-white p-5 shadow-sm">
+            <summary class="cursor-pointer select-none text-sm font-extrabold text-slate-900 focus-visible:outline-none">كيف تختارون المشاريع ذات الأولوية؟</summary>
+            <p class="mt-3 text-sm leading-7 text-slate-600">وفق احتياجات ميدانية، وتقييم أثر، وقدرة تنفيذ سريعة، مع توثيق وتحديثات.</p>
+          </details>
+        </div>
+      </div>
+    </section>
 
-                        <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
-                            <a href="#sponsorship-grid"
-                                class="inline-flex items-center justify-center rounded-xl bg-primary px-6 py-3 text-sm font-extrabold text-white shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-primary">
-                                استعرض الكفالات
-                            </a>
-                            <a href="#about"
-                                class="inline-flex items-center justify-center rounded-xl border border-gray-200 bg-white px-6 py-3 text-sm font-extrabold text-gray-900 transition hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-primary">
-                                تعرّف علينا
-                            </a>
-                        </div>
-                    </div>
+    <!-- =========================
+         Contact + Footer
+         ========================= -->
+    <section id="contact" class="bg-slate-950">
+      <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+        <div class="grid gap-8 lg:grid-cols-12 lg:items-center">
+          <div class="lg:col-span-7">
+            <h2 data-reveal class="opacity-0 translate-y-3 transition duration-700 text-2xl font-black text-white sm:text-3xl">لنصنع أثرًا معًا</h2>
+            <p data-reveal class="opacity-0 translate-y-3 transition duration-700 delay-75 mt-3 max-w-2xl text-sm leading-7 text-slate-300 sm:text-base"><!-- Replace: CTA -->اشترك بالنشرة أو تواصل معنا للحصول على تقارير الأثر والشراكات.</p>
+          </div>
 
-                    <!-- Image (left) -->
-                    <div class="lg:col-span-5">
-                        <div class="relative overflow-hidden rounded-2xl shadow-soft ring-1 ring-gray-100">
-                            <img src="https://picsum.photos/seed/sponsorship/900/720" alt="صورة كفالة ودعم مجتمعي"
-                                class="h-[320px] w-full object-cover sm:h-[380px] lg:h-[460px]" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-black/0 to-black/15"></div>
-                            <div class="absolute bottom-4 right-4 left-4 rounded-2xl bg-white/90 p-4 backdrop-blur">
-                                <p class="text-sm font-black text-gray-900">كفالة طالب لمدة شهر</p>
-                                <p class="mt-1 text-xs text-gray-600">كتب • قرطاسية • مواصلات • دعم نفسي</p>
-                                <div class="mt-3 flex items-center justify-between">
-                                    <span class="text-sm font-extrabold text-primary">ابتداءً من 120 ₪</span>
-                                    <a href="#donate"
-                                        class="inline-flex items-center gap-2 rounded-xl bg-cta px-4 py-2 text-xs font-extrabold text-white transition hover:-translate-y-0.5 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-primary">
-                                        تبرع
-                                        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                            <path d="M8 12h8" stroke="currentColor" stroke-width="1.7"
-                                                stroke-linecap="round" />
-                                            <path d="M12 8l4 4-4 4" stroke="currentColor" stroke-width="1.7"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          <div class="lg:col-span-5">
+            <form data-reveal class="opacity-0 translate-y-3 transition duration-700 delay-150 rounded-3xl bg-white p-5 shadow-soft" action="#" method="post">
+              <label for="email" class="text-sm font-extrabold text-slate-900">البريد الإلكتروني</label>
+              <div class="mt-2 flex gap-2">
+                <input id="email" type="email" placeholder="you@example.com" class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-900 placeholder:text-slate-400 shadow-sm transition focus:border-primary focus:ring-2 focus:ring-primary/30" />
+                <button type="submit" class="shrink-0 rounded-2xl bg-primary px-4 py-3 text-sm font-extrabold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">اشتراك</button>
+              </div>
+              <p class="mt-2 text-xs text-slate-500">لن نشارك بريدك مع أي طرف.</p>
+            </form>
+          </div>
+        </div>
+
+        <div class="mt-10 border-t border-white/10 pt-6">
+          <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <p class="text-xs font-bold text-slate-400">© <span id="year"></span> مؤسسة العطاء — جميع الحقوق محفوظة.</p>
+            <div class="flex items-center gap-4">
+              <a href="#" class="text-xs font-bold text-slate-300 hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg px-1">سياسة الخصوصية</a>
+              <a href="#" class="text-xs font-bold text-slate-300 hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg px-1">الشروط والأحكام</a>
             </div>
-        </section>
-
-        <!-- 5) Horizontal category strip -->
-        <section class="bg-primarySoft">
-            <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-                <div class="flex items-end justify-between gap-4">
-                    <div>
-                        <h2 class="text-xl font-black text-ink sm:text-2xl">مجالات التبرع السريعة</h2>
-                        <p class="mt-1 text-sm text-muted">اختر المجال المناسب وابدأ بالدعم فورًا.</p>
-                    </div>
-                    <a href="#projects"
-                        class="hidden sm:inline-flex items-center gap-2 rounded-xl border border-primary/20 bg-white px-4 py-2 text-sm font-extrabold text-primary transition hover:-translate-y-0.5 hover:shadow-md focus-visible:ring-2 focus-visible:ring-primary">
-                        عرض الكل
-                        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                            <path d="M8 12h8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
-                            <path d="M12 8l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </a>
-                </div>
-
-                <div class="mt-6">
-                    <div
-                        class="flex gap-3 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-                        <!-- Mini card -->
-                        <a href="#donate"
-                            class="group min-w-[220px] rounded-2xl border border-white/60 bg-white p-3 shadow-sm transition hover:-translate-y-0.5 hover:shadow-soft focus-visible:ring-2 focus-visible:ring-primary">
-                            <div class="flex items-center gap-3">
-                                <img src="https://picsum.photos/seed/cat1/120/90" alt="غذاء"
-                                    class="h-14 w-16 rounded-xl object-cover" />
-                                <div>
-                                    <p class="text-sm font-extrabold text-gray-900 group-hover:text-primary">سلال غذائية
-                                    </p>
-                                    <p class="mt-0.5 text-xs text-gray-600">أولوية عاجلة</p>
-                                </div>
-                            </div>
-                        </a>
-
-                        <a href="#donate"
-                            class="group min-w-[220px] rounded-2xl border border-white/60 bg-white p-3 shadow-sm transition hover:-translate-y-0.5 hover:shadow-soft focus-visible:ring-2 focus-visible:ring-primary">
-                            <div class="flex items-center gap-3">
-                                <img src="https://picsum.photos/seed/cat2/120/90" alt="دواء"
-                                    class="h-14 w-16 rounded-xl object-cover" />
-                                <div>
-                                    <p class="text-sm font-extrabold text-gray-900 group-hover:text-primary">دواء وعلاج
-                                    </p>
-                                    <p class="mt-0.5 text-xs text-gray-600">للأمراض المزمنة</p>
-                                </div>
-                            </div>
-                        </a>
-
-                        <a href="#donate"
-                            class="group min-w-[220px] rounded-2xl border border-white/60 bg-white p-3 shadow-sm transition hover:-translate-y-0.5 hover:shadow-soft focus-visible:ring-2 focus-visible:ring-primary">
-                            <div class="flex items-center gap-3">
-                                <img src="https://picsum.photos/seed/cat3/120/90" alt="تعليم"
-                                    class="h-14 w-16 rounded-xl object-cover" />
-                                <div>
-                                    <p class="text-sm font-extrabold text-gray-900 group-hover:text-primary">تعليم
-                                        وحقائب</p>
-                                    <p class="mt-0.5 text-xs text-gray-600">عودة آمنة للمدرسة</p>
-                                </div>
-                            </div>
-                        </a>
-
-                        <a href="#donate"
-                            class="group min-w-[220px] rounded-2xl border border-white/60 bg-white p-3 shadow-sm transition hover:-translate-y-0.5 hover:shadow-soft focus-visible:ring-2 focus-visible:ring-primary">
-                            <div class="flex items-center gap-3">
-                                <img src="https://picsum.photos/seed/cat4/120/90" alt="مأوى"
-                                    class="h-14 w-16 rounded-xl object-cover" />
-                                <div>
-                                    <p class="text-sm font-extrabold text-gray-900 group-hover:text-primary">مأوى وكساء
-                                    </p>
-                                    <p class="mt-0.5 text-xs text-gray-600">بطانيات وتدفئة</p>
-                                </div>
-                            </div>
-                        </a>
-
-                        <a href="#donate"
-                            class="group min-w-[220px] rounded-2xl border border-white/60 bg-white p-3 shadow-sm transition hover:-translate-y-0.5 hover:shadow-soft focus-visible:ring-2 focus-visible:ring-primary">
-                            <div class="flex items-center gap-3">
-                                <img src="https://picsum.photos/seed/cat5/120/90" alt="مياه"
-                                    class="h-14 w-16 rounded-xl object-cover" />
-                                <div>
-                                    <p class="text-sm font-extrabold text-gray-900 group-hover:text-primary">مياه نظيفة
-                                    </p>
-                                    <p class="mt-0.5 text-xs text-gray-600">محطات صغيرة</p>
-                                </div>
-                            </div>
-                        </a>
-
-                        <a href="#donate"
-                            class="group min-w-[220px] rounded-2xl border border-white/60 bg-white p-3 shadow-sm transition hover:-translate-y-0.5 hover:shadow-soft focus-visible:ring-2 focus-visible:ring-primary">
-                            <div class="flex items-center gap-3">
-                                <img src="https://picsum.photos/seed/cat6/120/90" alt="تمكين"
-                                    class="h-14 w-16 rounded-xl object-cover" />
-                                <div>
-                                    <p class="text-sm font-extrabold text-gray-900 group-hover:text-primary">تمكين
-                                        اقتصادي</p>
-                                    <p class="mt-0.5 text-xs text-gray-600">مشاريع صغيرة</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <a href="#projects"
-                        class="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-primary/20 bg-white px-4 py-2.5 text-sm font-extrabold text-primary transition hover:-translate-y-0.5 hover:shadow-md focus-visible:ring-2 focus-visible:ring-primary sm:hidden">
-                        عرض جميع المجالات
-                        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                            <path d="M8 12h8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
-                            <path d="M12 8l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- 6) Donate for... (3 cards) -->
-        <section id="campaigns" class="bg-white">
-            <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-                <div class="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
-                    <div>
-                        <h2 class="text-2xl font-black text-ink sm:text-3xl">تبرع من أجل...</h2>
-                        <p class="mt-2 text-sm text-muted">فرص تبرع مركزة لأثر سريع وقابل للقياس.</p>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <span class="rounded-full bg-primarySoft px-4 py-2 text-xs font-extrabold text-primary">الأكثر
-                            دعمًا</span>
-                        <span class="rounded-full bg-gray-50 px-4 py-2 text-xs font-extrabold text-gray-700">جديد</span>
-                    </div>
-                </div>
-
-                <div class="mt-8 grid gap-6 lg:grid-cols-3">
-                    <!-- Card 1 -->
-                    <article
-                        class="group relative overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
-                        <div class="relative h-48">
-                            <img src="https://picsum.photos/seed/donate1/900/520" alt="مشروع سلال غذائية"
-                                class="h-full w-full object-cover" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10"></div>
-                            <div
-                                class="absolute top-4 right-4 rounded-full bg-white/90 px-3 py-1 text-xs font-extrabold text-primary shadow-sm">
-                                ابتداءً من 150 ₪
-                            </div>
-                            <h3 class="absolute bottom-4 right-4 left-4 text-lg font-black text-white">
-                                سلة غذائية لعائلة
-                            </h3>
-                        </div>
-
-                        <div class="p-5">
-                            <p class="text-sm leading-7 text-gray-600">
-                                توفّر السلة احتياجات أسرة لمدة أسبوعين: مواد أساسية، معلبات، وحليب للأطفال.
-                            </p>
-
-                            <div class="mt-4">
-                                <p class="text-xs font-bold text-gray-700">مبالغ مقترحة</p>
-                                <div class="mt-2 flex flex-wrap gap-2">
-                                    <button type="button"
-                                        class="rounded-full border border-gray-200 px-4 py-2 text-xs font-extrabold text-gray-800 transition hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-primary">150</button>
-                                    <button type="button"
-                                        class="rounded-full border border-gray-200 px-4 py-2 text-xs font-extrabold text-gray-800 transition hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-primary">250</button>
-                                    <button type="button"
-                                        class="rounded-full border border-gray-200 px-4 py-2 text-xs font-extrabold text-gray-800 transition hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-primary">400</button>
-                                </div>
-                            </div>
-
-                            <div class="mt-5 flex items-center justify-between">
-                                <span class="text-xs font-bold text-gray-500">آخر تحديث: هذا الأسبوع</span>
-                                <a href="#donate"
-                                    class="inline-flex items-center justify-center rounded-xl bg-cta px-4 py-2.5 text-xs font-extrabold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md focus-visible:ring-2 focus-visible:ring-primary">
-                                    تبرع الآن
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Card 2 -->
-                    <article
-                        class="group relative overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
-                        <div class="relative h-48">
-                            <img src="https://picsum.photos/seed/donate2/900/520" alt="مشروع علاج طارئ"
-                                class="h-full w-full object-cover" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10"></div>
-                            <div
-                                class="absolute top-4 right-4 rounded-full bg-white/90 px-3 py-1 text-xs font-extrabold text-primary shadow-sm">
-                                ابتداءً من 80 ₪
-                            </div>
-                            <h3 class="absolute bottom-4 right-4 left-4 text-lg font-black text-white">
-                                دواء وعلاج عاجل
-                            </h3>
-                        </div>
-
-                        <div class="p-5">
-                            <p class="text-sm leading-7 text-gray-600">
-                                تبرعك يساهم في توفير أدوية للأمراض المزمنة، ومستلزمات إسعافية لحالات طارئة.
-                            </p>
-
-                            <div class="mt-4">
-                                <p class="text-xs font-bold text-gray-700">مبالغ مقترحة</p>
-                                <div class="mt-2 flex flex-wrap gap-2">
-                                    <button type="button"
-                                        class="rounded-full border border-gray-200 px-4 py-2 text-xs font-extrabold text-gray-800 transition hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-primary">80</button>
-                                    <button type="button"
-                                        class="rounded-full border border-gray-200 px-4 py-2 text-xs font-extrabold text-gray-800 transition hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-primary">160</button>
-                                    <button type="button"
-                                        class="rounded-full border border-gray-200 px-4 py-2 text-xs font-extrabold text-gray-800 transition hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-primary">300</button>
-                                </div>
-                            </div>
-
-                            <div class="mt-5 flex items-center justify-between">
-                                <span class="text-xs font-bold text-gray-500">يشمل وصفات معتمدة</span>
-                                <a href="#donate"
-                                    class="inline-flex items-center justify-center rounded-xl bg-primary px-4 py-2.5 text-xs font-extrabold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md focus-visible:ring-2 focus-visible:ring-primary">
-                                    ساهم الآن
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Card 3 -->
-                    <article
-                        class="group relative overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
-                        <div class="relative h-48">
-                            <img src="https://picsum.photos/seed/donate3/900/520" alt="مشروع حقائب مدرسية"
-                                class="h-full w-full object-cover" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10"></div>
-                            <div
-                                class="absolute top-4 right-4 rounded-full bg-white/90 px-3 py-1 text-xs font-extrabold text-primary shadow-sm">
-                                ابتداءً من 110 ₪
-                            </div>
-                            <h3 class="absolute bottom-4 right-4 left-4 text-lg font-black text-white">
-                                حقيبة مدرسية متكاملة
-                            </h3>
-                        </div>
-
-                        <div class="p-5">
-                            <p class="text-sm leading-7 text-gray-600">
-                                حقيبة + قرطاسية + مستلزمات أساسية تساعد الطالب على بداية فصل دراسي بثقة.
-                            </p>
-
-                            <div class="mt-4">
-                                <p class="text-xs font-bold text-gray-700">مبالغ مقترحة</p>
-                                <div class="mt-2 flex flex-wrap gap-2">
-                                    <button type="button"
-                                        class="rounded-full border border-gray-200 px-4 py-2 text-xs font-extrabold text-gray-800 transition hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-primary">110</button>
-                                    <button type="button"
-                                        class="rounded-full border border-gray-200 px-4 py-2 text-xs font-extrabold text-gray-800 transition hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-primary">220</button>
-                                    <button type="button"
-                                        class="rounded-full border border-gray-200 px-4 py-2 text-xs font-extrabold text-gray-800 transition hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-primary">330</button>
-                                </div>
-                            </div>
-
-                            <div class="mt-5 flex items-center justify-between">
-                                <span class="text-xs font-bold text-gray-500">برنامج التعليم</span>
-                                <a href="#donate"
-                                    class="inline-flex items-center justify-center rounded-xl bg-cta px-4 py-2.5 text-xs font-extrabold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md focus-visible:ring-2 focus-visible:ring-primary">
-                                    تبرع الآن
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- 7) Grid: Community sponsorships/projects -->
-        <section id="projects" class="bg-gray-50">
-            <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-                <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-                    <div>
-                        <h2 class="text-2xl font-black text-ink sm:text-3xl">كفالات مجتمعية ومشاريع ميدانية</h2>
-                        <p class="mt-2 text-sm text-muted">اختر مشروعًا وراقب التقدم عبر شريط الإنجاز والتقارير.</p>
-                    </div>
-                    <a href="#donate"
-                        class="inline-flex items-center justify-center rounded-xl bg-primary px-6 py-3 text-sm font-extrabold text-white shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-primary">
-                        تبرع للمشاريع
-                    </a>
-                </div>
-
-                <div id="sponsorship-grid" class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                    <!-- Project card template (x6) -->
-                    <article
-                        class="group overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
-                        <div class="relative">
-                            <img src="https://picsum.photos/seed/p1/900/520" alt="مشروع تمكين"
-                                class="h-44 w-full object-cover" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-black/0 to-black/0"></div>
-                            <span
-                                class="absolute top-3 right-3 rounded-full bg-white/90 px-3 py-1 text-xs font-extrabold text-primary shadow-sm">#A-102</span>
-                        </div>
-                        <div class="p-5">
-                            <h3 class="text-base font-black text-gray-900 group-hover:text-primary transition">تمكين
-                                أرامل عبر مشاريع صغيرة</h3>
-                            <p class="mt-2 text-sm leading-7 text-gray-600">
-                                دعم أدوات عمل وتدريب لإطلاق مصدر دخل مستدام داخل المجتمع.
-                            </p>
-
-                            <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-600">
-                                <span class="inline-flex items-center gap-1 rounded-full bg-gray-50 px-3 py-1">
-                                    <svg class="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none"
-                                        aria-hidden="true">
-                                        <path d="M12 21s7-4 7-10a7 7 0 1 0-14 0c0 6 7 10 7 10Z" stroke="currentColor"
-                                            stroke-width="1.7" />
-                                        <path d="M12 11.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" stroke="currentColor"
-                                            stroke-width="1.7" />
-                                    </svg>
-                                    غزة
-                                </span>
-                                <span class="inline-flex items-center gap-1 rounded-full bg-gray-50 px-3 py-1">
-                                    <svg class="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none"
-                                        aria-hidden="true">
-                                        <path d="M7 3v3M17 3v3M4 8h16M6 12h4M6 16h7" stroke="currentColor"
-                                            stroke-width="1.7" stroke-linecap="round" />
-                                        <path
-                                            d="M6 5h12a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"
-                                            stroke="currentColor" stroke-width="1.7" />
-                                    </svg>
-                                    90 يوم
-                                </span>
-                                <span class="inline-flex items-center gap-1 rounded-full bg-gray-50 px-3 py-1">
-                                    <svg class="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none"
-                                        aria-hidden="true">
-                                        <path d="M7 7h10v10H7V7Z" stroke="currentColor" stroke-width="1.7" />
-                                        <path d="M9 11h6M9 14h4" stroke="currentColor" stroke-width="1.7"
-                                            stroke-linecap="round" />
-                                    </svg>
-                                    24 مستفيدة
-                                </span>
-                            </div>
-
-                            <div class="mt-4">
-                                <div class="flex items-center justify-between text-xs font-bold text-gray-700">
-                                    <span>تم جمع: <span class="text-primary">18,200 ₪</span></span>
-                                    <span>الهدف: 30,000 ₪</span>
-                                </div>
-                                <div class="mt-2 h-2.5 w-full rounded-full bg-gray-100">
-                                    <div class="h-2.5 w-[61%] rounded-full bg-gradient-to-l from-primary to-purple-400">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="mt-5 flex items-center justify-between">
-                                <span class="text-xs text-gray-500">متبقّي 12 يوم</span>
-                                <a href="#donate"
-                                    class="inline-flex items-center justify-center rounded-xl bg-cta px-4 py-2.5 text-xs font-extrabold text-white transition hover:-translate-y-0.5 hover:shadow-md focus-visible:ring-2 focus-visible:ring-primary">
-                                    تبرع
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article
-                        class="group overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
-                        <div class="relative">
-                            <img src="https://picsum.photos/seed/p2/900/520" alt="مشروع مياه"
-                                class="h-44 w-full object-cover" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-black/0 to-black/0"></div>
-                            <span
-                                class="absolute top-3 right-3 rounded-full bg-white/90 px-3 py-1 text-xs font-extrabold text-primary shadow-sm">#W-214</span>
-                        </div>
-                        <div class="p-5">
-                            <h3 class="text-base font-black text-gray-900 group-hover:text-primary transition">محطة مياه
-                                صغيرة للأحياء</h3>
-                            <p class="mt-2 text-sm leading-7 text-gray-600">
-                                توفير مياه صالحة للشرب عبر فلاتر ومحطة متنقلة تخدم مئات الأسر.
-                            </p>
-
-                            <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-600">
-                                <span class="inline-flex items-center gap-1 rounded-full bg-gray-50 px-3 py-1">
-                                    <svg class="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none"
-                                        aria-hidden="true">
-                                        <path d="M12 21s7-4 7-10a7 7 0 1 0-14 0c0 6 7 10 7 10Z" stroke="currentColor"
-                                            stroke-width="1.7" />
-                                        <path d="M12 11.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" stroke="currentColor"
-                                            stroke-width="1.7" />
-                                    </svg>
-                                    الشمال
-                                </span>
-                                <span class="inline-flex items-center gap-1 rounded-full bg-gray-50 px-3 py-1">
-                                    <svg class="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none"
-                                        aria-hidden="true">
-                                        <path d="M7 3v3M17 3v3M4 8h16" stroke="currentColor" stroke-width="1.7"
-                                            stroke-linecap="round" />
-                                        <path
-                                            d="M6 5h12a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"
-                                            stroke="currentColor" stroke-width="1.7" />
-                                    </svg>
-                                    45 يوم
-                                </span>
-                                <span class="inline-flex items-center gap-1 rounded-full bg-gray-50 px-3 py-1">
-                                    <svg class="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none"
-                                        aria-hidden="true">
-                                        <path d="M3 12h18" stroke="currentColor" stroke-width="1.7"
-                                            stroke-linecap="round" />
-                                        <path d="M7 8h10M7 16h10" stroke="currentColor" stroke-width="1.7"
-                                            stroke-linecap="round" />
-                                    </svg>
-                                    600 أسرة
-                                </span>
-                            </div>
-
-                            <div class="mt-4">
-                                <div class="flex items-center justify-between text-xs font-bold text-gray-700">
-                                    <span>تم جمع: <span class="text-primary">9,750 ₪</span></span>
-                                    <span>الهدف: 20,000 ₪</span>
-                                </div>
-                                <div class="mt-2 h-2.5 w-full rounded-full bg-gray-100">
-                                    <div class="h-2.5 w-[49%] rounded-full bg-gradient-to-l from-primary to-purple-400">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="mt-5 flex items-center justify-between">
-                                <span class="text-xs text-gray-500">متبقّي 21 يوم</span>
-                                <a href="#donate"
-                                    class="inline-flex items-center justify-center rounded-xl bg-primary px-4 py-2.5 text-xs font-extrabold text-white transition hover:-translate-y-0.5 hover:shadow-md focus-visible:ring-2 focus-visible:ring-primary">
-                                    ادعم
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article
-                        class="group overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
-                        <div class="relative">
-                            <img src="https://picsum.photos/seed/p3/900/520" alt="مشروع كساء"
-                                class="h-44 w-full object-cover" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-black/0 to-black/0"></div>
-                            <span
-                                class="absolute top-3 right-3 rounded-full bg-white/90 px-3 py-1 text-xs font-extrabold text-primary shadow-sm">#C-087</span>
-                        </div>
-                        <div class="p-5">
-                            <h3 class="text-base font-black text-gray-900 group-hover:text-primary transition">كساء ودفء
-                                للأسر</h3>
-                            <p class="mt-2 text-sm leading-7 text-gray-600">
-                                بطانيات وملابس شتوية مع قسائم لشراء الاحتياجات الأساسية.
-                            </p>
-
-                            <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-600">
-                                <span class="inline-flex items-center gap-1 rounded-full bg-gray-50 px-3 py-1">
-                                    <svg class="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none"
-                                        aria-hidden="true">
-                                        <path d="M12 21s7-4 7-10a7 7 0 1 0-14 0c0 6 7 10 7 10Z" stroke="currentColor"
-                                            stroke-width="1.7" />
-                                        <path d="M12 11.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" stroke="currentColor"
-                                            stroke-width="1.7" />
-                                    </svg>
-                                    الوسط
-                                </span>
-                                <span class="inline-flex items-center gap-1 rounded-full bg-gray-50 px-3 py-1">
-                                    <svg class="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none"
-                                        aria-hidden="true">
-                                        <path d="M7 3v3M17 3v3M4 8h16" stroke="currentColor" stroke-width="1.7"
-                                            stroke-linecap="round" />
-                                        <path
-                                            d="M6 5h12a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"
-                                            stroke="currentColor" stroke-width="1.7" />
-                                    </svg>
-                                    30 يوم
-                                </span>
-                                <span class="inline-flex items-center gap-1 rounded-full bg-gray-50 px-3 py-1">
-                                    <svg class="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none"
-                                        aria-hidden="true">
-                                        <path d="M7 7h10v10H7V7Z" stroke="currentColor" stroke-width="1.7" />
-                                        <path d="M9 11h6M9 14h4" stroke="currentColor" stroke-width="1.7"
-                                            stroke-linecap="round" />
-                                    </svg>
-                                    140 أسرة
-                                </span>
-                            </div>
-
-                            <div class="mt-4">
-                                <div class="flex items-center justify-between text-xs font-bold text-gray-700">
-                                    <span>تم جمع: <span class="text-primary">12,300 ₪</span></span>
-                                    <span>الهدف: 15,000 ₪</span>
-                                </div>
-                                <div class="mt-2 h-2.5 w-full rounded-full bg-gray-100">
-                                    <div class="h-2.5 w-[82%] rounded-full bg-gradient-to-l from-primary to-purple-400">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="mt-5 flex items-center justify-between">
-                                <span class="text-xs text-gray-500">متبقّي 6 أيام</span>
-                                <a href="#donate"
-                                    class="inline-flex items-center justify-center rounded-xl bg-cta px-4 py-2.5 text-xs font-extrabold text-white transition hover:-translate-y-0.5 hover:shadow-md focus-visible:ring-2 focus-visible:ring-primary">
-                                    تبرع
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article
-                        class="group overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
-                        <div class="relative">
-                            <img src="https://picsum.photos/seed/p4/900/520" alt="مشروع وجبات"
-                                class="h-44 w-full object-cover" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-black/0 to-black/0"></div>
-                            <span
-                                class="absolute top-3 right-3 rounded-full bg-white/90 px-3 py-1 text-xs font-extrabold text-primary shadow-sm">#F-309</span>
-                        </div>
-                        <div class="p-5">
-                            <h3 class="text-base font-black text-gray-900 group-hover:text-primary transition">وجبات
-                                ساخنة للنازحين</h3>
-                            <p class="mt-2 text-sm leading-7 text-gray-600">
-                                دعم مطابخ ميدانية لتوفير وجبات يومية للعائلات في مراكز الإيواء.
-                            </p>
-
-                            <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-600">
-                                <span class="inline-flex items-center gap-1 rounded-full bg-gray-50 px-3 py-1">
-                                    <svg class="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none"
-                                        aria-hidden="true">
-                                        <path d="M12 21s7-4 7-10a7 7 0 1 0-14 0c0 6 7 10 7 10Z" stroke="currentColor"
-                                            stroke-width="1.7" />
-                                        <path d="M12 11.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" stroke="currentColor"
-                                            stroke-width="1.7" />
-                                    </svg>
-                                    رفح
-                                </span>
-                                <span class="inline-flex items-center gap-1 rounded-full bg-gray-50 px-3 py-1">
-                                    <svg class="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none"
-                                        aria-hidden="true">
-                                        <path d="M7 3v3M17 3v3M4 8h16" stroke="currentColor" stroke-width="1.7"
-                                            stroke-linecap="round" />
-                                        <path
-                                            d="M6 5h12a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"
-                                            stroke="currentColor" stroke-width="1.7" />
-                                    </svg>
-                                    21 يوم
-                                </span>
-                                <span class="inline-flex items-center gap-1 rounded-full bg-gray-50 px-3 py-1">
-                                    <svg class="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none"
-                                        aria-hidden="true">
-                                        <path d="M3 12h18" stroke="currentColor" stroke-width="1.7"
-                                            stroke-linecap="round" />
-                                        <path d="M7 8h10M7 16h10" stroke="currentColor" stroke-width="1.7"
-                                            stroke-linecap="round" />
-                                    </svg>
-                                    1,200 وجبة
-                                </span>
-                            </div>
-
-                            <div class="mt-4">
-                                <div class="flex items-center justify-between text-xs font-bold text-gray-700">
-                                    <span>تم جمع: <span class="text-primary">7,400 ₪</span></span>
-                                    <span>الهدف: 14,000 ₪</span>
-                                </div>
-                                <div class="mt-2 h-2.5 w-full rounded-full bg-gray-100">
-                                    <div class="h-2.5 w-[53%] rounded-full bg-gradient-to-l from-primary to-purple-400">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="mt-5 flex items-center justify-between">
-                                <span class="text-xs text-gray-500">متبقّي 9 أيام</span>
-                                <a href="#donate"
-                                    class="inline-flex items-center justify-center rounded-xl bg-primary px-4 py-2.5 text-xs font-extrabold text-white transition hover:-translate-y-0.5 hover:shadow-md focus-visible:ring-2 focus-visible:ring-primary">
-                                    ادعم
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article
-                        class="group overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
-                        <div class="relative">
-                            <img src="https://picsum.photos/seed/p5/900/520" alt="مشروع تعليم"
-                                class="h-44 w-full object-cover" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-black/0 to-black/0"></div>
-                            <span
-                                class="absolute top-3 right-3 rounded-full bg-white/90 px-3 py-1 text-xs font-extrabold text-primary shadow-sm">#E-556</span>
-                        </div>
-                        <div class="p-5">
-                            <h3 class="text-base font-black text-gray-900 group-hover:text-primary transition">دروس
-                                تقوية ودعم نفسي</h3>
-                            <p class="mt-2 text-sm leading-7 text-gray-600">
-                                جلسات تعليمية ودعم نفسي للأطفال لتجاوز آثار الأزمات وتحسين التحصيل.
-                            </p>
-
-                            <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-600">
-                                <span class="inline-flex items-center gap-1 rounded-full bg-gray-50 px-3 py-1">
-                                    <svg class="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none"
-                                        aria-hidden="true">
-                                        <path d="M12 21s7-4 7-10a7 7 0 1 0-14 0c0 6 7 10 7 10Z" stroke="currentColor"
-                                            stroke-width="1.7" />
-                                        <path d="M12 11.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" stroke="currentColor"
-                                            stroke-width="1.7" />
-                                    </svg>
-                                    خانيونس
-                                </span>
-                                <span class="inline-flex items-center gap-1 rounded-full bg-gray-50 px-3 py-1">
-                                    <svg class="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none"
-                                        aria-hidden="true">
-                                        <path d="M7 3v3M17 3v3M4 8h16" stroke="currentColor" stroke-width="1.7"
-                                            stroke-linecap="round" />
-                                        <path
-                                            d="M6 5h12a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"
-                                            stroke="currentColor" stroke-width="1.7" />
-                                    </svg>
-                                    120 يوم
-                                </span>
-                                <span class="inline-flex items-center gap-1 rounded-full bg-gray-50 px-3 py-1">
-                                    <svg class="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none"
-                                        aria-hidden="true">
-                                        <path d="M7 7h10v10H7V7Z" stroke="currentColor" stroke-width="1.7" />
-                                        <path d="M9 11h6M9 14h4" stroke="currentColor" stroke-width="1.7"
-                                            stroke-linecap="round" />
-                                    </svg>
-                                    80 طالب
-                                </span>
-                            </div>
-
-                            <div class="mt-4">
-                                <div class="flex items-center justify-between text-xs font-bold text-gray-700">
-                                    <span>تم جمع: <span class="text-primary">22,900 ₪</span></span>
-                                    <span>الهدف: 40,000 ₪</span>
-                                </div>
-                                <div class="mt-2 h-2.5 w-full rounded-full bg-gray-100">
-                                    <div class="h-2.5 w-[57%] rounded-full bg-gradient-to-l from-primary to-purple-400">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="mt-5 flex items-center justify-between">
-                                <span class="text-xs text-gray-500">متبقّي 33 يوم</span>
-                                <a href="#donate"
-                                    class="inline-flex items-center justify-center rounded-xl bg-cta px-4 py-2.5 text-xs font-extrabold text-white transition hover:-translate-y-0.5 hover:shadow-md focus-visible:ring-2 focus-visible:ring-primary">
-                                    تبرع
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article
-                        class="group overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
-                        <div class="relative">
-                            <img src="https://picsum.photos/seed/p6/900/520" alt="مشروع طوارئ"
-                                class="h-44 w-full object-cover" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-black/0 to-black/0"></div>
-                            <span
-                                class="absolute top-3 right-3 rounded-full bg-white/90 px-3 py-1 text-xs font-extrabold text-primary shadow-sm">#R-901</span>
-                        </div>
-                        <div class="p-5">
-                            <h3 class="text-base font-black text-gray-900 group-hover:text-primary transition">صندوق
-                                الطوارئ والإغاثة</h3>
-                            <p class="mt-2 text-sm leading-7 text-gray-600">
-                                دعم سريع لتغطية الاحتياجات الأكثر إلحاحًا وفق تقييمات ميدانية يومية.
-                            </p>
-
-                            <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-600">
-                                <span class="inline-flex items-center gap-1 rounded-full bg-gray-50 px-3 py-1">
-                                    <svg class="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none"
-                                        aria-hidden="true">
-                                        <path d="M12 21s7-4 7-10a7 7 0 1 0-14 0c0 6 7 10 7 10Z" stroke="currentColor"
-                                            stroke-width="1.7" />
-                                        <path d="M12 11.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" stroke="currentColor"
-                                            stroke-width="1.7" />
-                                    </svg>
-                                    عدة مناطق
-                                </span>
-                                <span class="inline-flex items-center gap-1 rounded-full bg-gray-50 px-3 py-1">
-                                    <svg class="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none"
-                                        aria-hidden="true">
-                                        <path d="M7 3v3M17 3v3M4 8h16" stroke="currentColor" stroke-width="1.7"
-                                            stroke-linecap="round" />
-                                        <path
-                                            d="M6 5h12a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"
-                                            stroke="currentColor" stroke-width="1.7" />
-                                    </svg>
-                                    مفتوح
-                                </span>
-                                <span class="inline-flex items-center gap-1 rounded-full bg-gray-50 px-3 py-1">
-                                    <svg class="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none"
-                                        aria-hidden="true">
-                                        <path d="M3 12h18" stroke="currentColor" stroke-width="1.7"
-                                            stroke-linecap="round" />
-                                        <path d="M7 8h10M7 16h10" stroke="currentColor" stroke-width="1.7"
-                                            stroke-linecap="round" />
-                                    </svg>
-                                    تحديث يومي
-                                </span>
-                            </div>
-
-                            <div class="mt-4">
-                                <div class="flex items-center justify-between text-xs font-bold text-gray-700">
-                                    <span>تم جمع: <span class="text-primary">41,600 ₪</span></span>
-                                    <span>الهدف: 70,000 ₪</span>
-                                </div>
-                                <div class="mt-2 h-2.5 w-full rounded-full bg-gray-100">
-                                    <div class="h-2.5 w-[59%] rounded-full bg-gradient-to-l from-primary to-purple-400">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="mt-5 flex items-center justify-between">
-                                <span class="text-xs text-gray-500">مستمر</span>
-                                <a href="#donate"
-                                    class="inline-flex items-center justify-center rounded-xl bg-primary px-4 py-2.5 text-xs font-extrabold text-white transition hover:-translate-y-0.5 hover:shadow-md focus-visible:ring-2 focus-visible:ring-primary">
-                                    تبرع
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- 8) Large banner with overlay + CTA -->
-        <section class="bg-white">
-            <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-                <div class="relative overflow-hidden rounded-3xl shadow-soft ring-1 ring-gray-100">
-                    <img src="https://picsum.photos/seed/banner-camp/1600/700" alt="لافتة حملة إنسانية"
-                        class="h-[320px] w-full object-cover sm:h-[360px] lg:h-[420px]" />
-                    <div class="absolute inset-0 bg-gradient-to-l from-black/70 via-black/35 to-black/10"></div>
-
-                    <div class="absolute inset-0 grid items-center">
-                        <div class="mx-4 sm:mx-8 lg:mx-10">
-                            <div class="max-w-xl rounded-2xl bg-white/90 p-6 backdrop-blur sm:p-7 lg:p-8">
-                                <div
-                                    class="inline-flex items-center gap-2 rounded-full bg-primarySoft px-4 py-2 text-xs font-extrabold text-primary">
-                                    حملة موسمية
-                                </div>
-                                <h2 class="mt-4 text-2xl font-black text-gray-900 sm:text-3xl">
-                                    معًا نوصل الدفء لمن يحتاجه
-                                </h2>
-                                <p class="mt-2 text-sm leading-7 text-gray-600">
-                                    ساهم في توفير بطانيات وملابس شتوية ومواد تدفئة للأسر في مراكز الإيواء. كل مساهمة
-                                    تصنع فرقًا واضحًا.
-                                </p>
-
-                                <div class="mt-5 flex flex-col gap-3 sm:flex-row">
-                                    <a href="#donate"
-                                        class="inline-flex items-center justify-center rounded-xl bg-cta px-6 py-3 text-sm font-extrabold text-white shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-primary">
-                                        تبرع للحملة
-                                    </a>
-                                    <a href="#stories"
-                                        class="inline-flex items-center justify-center rounded-xl border border-gray-200 bg-white px-6 py-3 text-sm font-extrabold text-gray-900 transition hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-primary">
-                                        شاهد الأثر
-                                    </a>
-                                </div>
-
-                                <div class="mt-5 grid grid-cols-3 gap-3">
-                                    <div class="rounded-2xl bg-white p-3 ring-1 ring-gray-100">
-                                        <p class="text-xs text-gray-500">مستفيدون</p>
-                                        <p class="mt-1 text-base font-black text-primary">3,200+</p>
-                                    </div>
-                                    <div class="rounded-2xl bg-white p-3 ring-1 ring-gray-100">
-                                        <p class="text-xs text-gray-500">توزيعات</p>
-                                        <p class="mt-1 text-base font-black text-primary">860</p>
-                                    </div>
-                                    <div class="rounded-2xl bg-white p-3 ring-1 ring-gray-100">
-                                        <p class="text-xs text-gray-500">شركاء</p>
-                                        <p class="mt-1 text-base font-black text-primary">14</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Decorative corner badge -->
-                    <div
-                        class="absolute top-4 left-4 rounded-2xl bg-white/90 px-4 py-3 text-xs font-extrabold text-gray-900 shadow-sm backdrop-blur">
-                        <p class="text-gray-500 font-bold">هدف الحملة</p>
-                        <p class="mt-1 text-primary text-base font-black">120,000 ₪</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 9) Stories -->
-        <section id="stories" class="bg-gray-50">
-            <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-                <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-                    <div>
-                        <h2 class="text-2xl font-black text-ink sm:text-3xl">قصص من الميدان</h2>
-                        <p class="mt-2 text-sm text-muted">حكايات حقيقية تروي أثر الدعم في حياة الناس.</p>
-                    </div>
-                    <a href="#"
-                        class="inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-5 py-2.5 text-sm font-extrabold text-gray-900 transition hover:-translate-y-0.5 hover:shadow-md focus-visible:ring-2 focus-visible:ring-primary">
-                        عرض كل القصص
-                        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                            <path d="M8 12h8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
-                            <path d="M12 8l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </a>
-                </div>
-
-                <div class="mt-8 grid gap-6 lg:grid-cols-3">
-                    <article
-                        class="group overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
-                        <img src="https://picsum.photos/seed/story1/900/520" alt="قصة 1"
-                            class="h-44 w-full object-cover" />
-                        <div class="p-5">
-                            <p class="text-xs font-extrabold text-primary">تعليم</p>
-                            <h3 class="mt-2 text-base font-black text-gray-900 group-hover:text-primary transition">
-                                “رجعت للمدرسة وأنا معي حقيبة جديدة”
-                            </h3>
-                            <p class="mt-2 text-sm leading-7 text-gray-600">
-                                ساهمت حملة الحقائب في تجهيز الطلاب بمستلزماتهم الأساسية، ورفعت الدافعية للعودة للتعلّم
-                                بثقة.
-                            </p>
-                            <div class="mt-4 flex items-center justify-between">
-                                <span class="text-xs text-gray-500">منذ 6 أيام</span>
-                                <a href="#"
-                                    class="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-xs font-extrabold text-white transition hover:-translate-y-0.5 hover:shadow-md focus-visible:ring-2 focus-visible:ring-primary">
-                                    اقرأ المزيد
-                                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                        <path d="M8 12h8" stroke="currentColor" stroke-width="1.7"
-                                            stroke-linecap="round" />
-                                        <path d="M12 8l4 4-4 4" stroke="currentColor" stroke-width="1.7"
-                                            stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article
-                        class="group overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
-                        <img src="https://picsum.photos/seed/story2/900/520" alt="قصة 2"
-                            class="h-44 w-full object-cover" />
-                        <div class="p-5">
-                            <p class="text-xs font-extrabold text-primary">صحة</p>
-                            <h3 class="mt-2 text-base font-black text-gray-900 group-hover:text-primary transition">
-                                “الدواء وصل بوقته… وتنفسنا الصعداء”
-                            </h3>
-                            <p class="mt-2 text-sm leading-7 text-gray-600">
-                                بفضل المتبرعين تم تأمين أدوية لأمراض مزمنة لعدد من الحالات التي كانت تواجه انقطاعًا
-                                حادًا.
-                            </p>
-                            <div class="mt-4 flex items-center justify-between">
-                                <span class="text-xs text-gray-500">منذ 11 يوم</span>
-                                <a href="#"
-                                    class="inline-flex items-center gap-2 rounded-xl bg-cta px-4 py-2.5 text-xs font-extrabold text-white transition hover:-translate-y-0.5 hover:shadow-md focus-visible:ring-2 focus-visible:ring-primary">
-                                    اقرأ المزيد
-                                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                        <path d="M8 12h8" stroke="currentColor" stroke-width="1.7"
-                                            stroke-linecap="round" />
-                                        <path d="M12 8l4 4-4 4" stroke="currentColor" stroke-width="1.7"
-                                            stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article
-                        class="group overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
-                        <img src="https://picsum.photos/seed/story3/900/520" alt="قصة 3"
-                            class="h-44 w-full object-cover" />
-                        <div class="p-5">
-                            <p class="text-xs font-extrabold text-primary">تمكين</p>
-                            <h3 class="mt-2 text-base font-black text-gray-900 group-hover:text-primary transition">
-                                “مشروعي الصغير صار مصدر دخل”
-                            </h3>
-                            <p class="mt-2 text-sm leading-7 text-gray-600">
-                                تدريب مهني وأدوات عمل ساعدت مستفيدات على بدء مشاريع منزلية توفر دخلاً ثابتًا.
-                            </p>
-                            <div class="mt-4 flex items-center justify-between">
-                                <span class="text-xs text-gray-500">منذ 3 أسابيع</span>
-                                <a href="#"
-                                    class="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-xs font-extrabold text-white transition hover:-translate-y-0.5 hover:shadow-md focus-visible:ring-2 focus-visible:ring-primary">
-                                    اقرأ المزيد
-                                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                        <path d="M8 12h8" stroke="currentColor" stroke-width="1.7"
-                                            stroke-linecap="round" />
-                                        <path d="M12 8l4 4-4 4" stroke="currentColor" stroke-width="1.7"
-                                            stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- 10) Partners -->
-        <section class="bg-primarySoft">
-            <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-                <div class="flex items-center justify-between gap-4">
-                    <h2 class="text-xl font-black text-ink sm:text-2xl">شركاؤنا</h2>
-                    <p class="hidden sm:block text-sm text-muted">نعتز بشركائنا الداعمين للمسار الإنساني</p>
-                </div>
-
-                <div class="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-                    <div
-                        class="grid h-20 place-items-center rounded-2xl border border-white/60 bg-white text-sm font-extrabold text-gray-700 shadow-sm">
-                        Partner A</div>
-                    <div
-                        class="grid h-20 place-items-center rounded-2xl border border-white/60 bg-white text-sm font-extrabold text-gray-700 shadow-sm">
-                        Partner B</div>
-                    <div
-                        class="grid h-20 place-items-center rounded-2xl border border-white/60 bg-white text-sm font-extrabold text-gray-700 shadow-sm">
-                        Partner C</div>
-                    <div
-                        class="grid h-20 place-items-center rounded-2xl border border-white/60 bg-white text-sm font-extrabold text-gray-700 shadow-sm">
-                        Partner D</div>
-                    <div
-                        class="grid h-20 place-items-center rounded-2xl border border-white/60 bg-white text-sm font-extrabold text-gray-700 shadow-sm">
-                        Partner E</div>
-                    <div
-                        class="grid h-20 place-items-center rounded-2xl border border-white/60 bg-white text-sm font-extrabold text-gray-700 shadow-sm">
-                        Partner F</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- About (small section for nav completeness) -->
-        <section id="about" class="bg-white">
-            <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-                <div class="rounded-3xl border border-gray-100 bg-white p-6 shadow-soft sm:p-8">
-                    <div class="grid gap-6 lg:grid-cols-12 lg:items-center">
-                        <div class="lg:col-span-7">
-                            <h2 class="text-2xl font-black text-ink sm:text-3xl">من نحن</h2>
-                            <p class="mt-3 text-sm leading-7 text-muted sm:text-base">
-                                مؤسسة العطاء هي مبادرة مجتمعية تعمل على الإغاثة العاجلة والتمكين طويل الأمد. نؤمن بأن
-                                التغيير الحقيقي يبدأ بخطوة بسيطة — تبرع واعٍ يصل لمستحقه بشفافية وكرامة.
-                            </p>
-                            <div class="mt-5 grid gap-3 sm:grid-cols-3">
-                                <div class="rounded-2xl bg-primarySoft p-4">
-                                    <p class="text-xs text-gray-600">مشاريع منفذة</p>
-                                    <p class="mt-1 text-xl font-black text-primary">240+</p>
-                                </div>
-                                <div class="rounded-2xl bg-primarySoft p-4">
-                                    <p class="text-xs text-gray-600">متطوعون</p>
-                                    <p class="mt-1 text-xl font-black text-primary">1,050</p>
-                                </div>
-                                <div class="rounded-2xl bg-primarySoft p-4">
-                                    <p class="text-xs text-gray-600">مستفيدون</p>
-                                    <p class="mt-1 text-xl font-black text-primary">78k</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="lg:col-span-5">
-                            <div class="relative overflow-hidden rounded-2xl ring-1 ring-gray-100 shadow-soft">
-                                <img src="https://picsum.photos/seed/about/900/700" alt="صورة عن المؤسسة"
-                                    class="h-[260px] w-full object-cover sm:h-[320px]" />
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-black/0 to-black/0">
-                                </div>
-                                <div class="absolute bottom-4 right-4 left-4 rounded-2xl bg-white/90 p-4 backdrop-blur">
-                                    <p class="text-sm font-black text-gray-900">رؤيتنا</p>
-                                    <p class="mt-1 text-xs leading-6 text-gray-600">
-                                        بناء منظومة دعم تعتمد على الشفافية، وإشراك المجتمع، وتحويل التبرعات إلى أثر
-                                        ملموس ومستدام.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 11) Footer -->
-        <footer id="contact" class="bg-gray-900 text-gray-100">
-            <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-                <div class="grid gap-8 lg:grid-cols-12">
-                    <!-- Brand -->
-                    <div class="lg:col-span-4">
-                        <div class="flex items-center gap-3">
-                            <div class="grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br from-primary to-purple-400 text-white shadow-soft"
-                                aria-hidden="true">
-                                <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none">
-                                    <path
-                                        d="M12 21s-7-4.35-9.2-9A6.2 6.2 0 0 1 12 4a6.2 6.2 0 0 1 9.2 8c-2.2 4.65-9.2 9-9.2 9Z"
-                                        fill="currentColor" />
-                                </svg>
-                            </div>
-                            <div>
-                                <p class="text-lg font-black">مؤسسة العطاء</p>
-                                <p class="text-xs text-gray-300">شفافية • أثر • كرامة</p>
-                            </div>
-                        </div>
-
-                        <p class="mt-4 text-sm leading-7 text-gray-300">
-                            نربط المتبرعين بفرص دعم موثوقة، ونقدّم تقارير توضح أثر مساهماتهم. ساعدنا لنصل لأكبر عدد من
-                            المحتاجين.
-                        </p>
-
-                        <div class="mt-5 flex items-center gap-2">
-                            <a href="#" aria-label="فيسبوك"
-                                class="rounded-lg bg-white/10 p-2 text-gray-200 transition hover:bg-white/15 focus-visible:ring-2 focus-visible:ring-primary">
-                                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                    <path
-                                        d="M14 8h3V5h-3c-1.657 0-3 1.343-3 3v3H8v3h3v6h3v-6h3l1-3h-4V8c0-.552.448-1 1-1Z"
-                                        fill="currentColor" />
-                                </svg>
-                            </a>
-                            <a href="#" aria-label="تويتر"
-                                class="rounded-lg bg-white/10 p-2 text-gray-200 transition hover:bg-white/15 focus-visible:ring-2 focus-visible:ring-primary">
-                                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                    <path
-                                        d="M19 7.5c.01.14.01.28 0 .42C19 13 14.97 18 7.6 18c-2.02 0-3.9-.6-5.5-1.63.28.03.56.04.85.04 1.68 0 3.23-.58 4.46-1.55-1.57-.03-2.9-1.08-3.35-2.52.22.04.44.07.67.07.32 0 .64-.04.94-.12-1.64-.34-2.87-1.8-2.87-3.57v-.04c.48.27 1.03.44 1.62.46A3.58 3.58 0 0 1 3.3 4.5c1.8 2.25 4.5 3.73 7.55 3.89a3.66 3.66 0 0 1-.1-.82 3.58 3.58 0 0 1 6.2-2.46c.7-.14 1.36-.4 1.95-.75-.23.72-.72 1.33-1.35 1.71.62-.08 1.2-.24 1.75-.48-.42.62-.93 1.17-1.55 1.62Z"
-                                        fill="currentColor" />
-                                </svg>
-                            </a>
-                            <a href="#" aria-label="انستغرام"
-                                class="rounded-lg bg-white/10 p-2 text-gray-200 transition hover:bg-white/15 focus-visible:ring-2 focus-visible:ring-primary">
-                                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                    <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z"
-                                        stroke="currentColor" stroke-width="1.7" />
-                                    <path d="M12 16a4 4 0 1 0-4-4 4 4 0 0 0 4 4Z" stroke="currentColor"
-                                        stroke-width="1.7" />
-                                    <path d="M17.5 6.5h.01" stroke="currentColor" stroke-width="3.2"
-                                        stroke-linecap="round" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Quick links -->
-                    <div class="lg:col-span-2">
-                        <h3 class="text-sm font-extrabold text-white">روابط سريعة</h3>
-                        <ul class="mt-4 space-y-2 text-sm text-gray-300">
-                            <li><a class="hover:underline focus-visible:ring-2 focus-visible:ring-primary rounded-md px-1"
-                                    href="#projects">المشاريع</a></li>
-                            <li><a class="hover:underline focus-visible:ring-2 focus-visible:ring-primary rounded-md px-1"
-                                    href="#campaigns">الحملات</a></li>
-                            <li><a class="hover:underline focus-visible:ring-2 focus-visible:ring-primary rounded-md px-1"
-                                    href="#sponsorships">الكفالات</a></li>
-                            <li><a class="hover:underline focus-visible:ring-2 focus-visible:ring-primary rounded-md px-1"
-                                    href="#stories">قصص النجاح</a></li>
-                            <li><a class="hover:underline focus-visible:ring-2 focus-visible:ring-primary rounded-md px-1"
-                                    href="#about">من نحن</a></li>
-                        </ul>
-                    </div>
-
-                    <!-- Contact -->
-                    <div class="lg:col-span-3">
-                        <h3 class="text-sm font-extrabold text-white">تواصل</h3>
-                        <div class="mt-4 space-y-3 text-sm text-gray-300">
-                            <p class="flex items-center gap-2">
-                                <span
-                                    class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 text-white"
-                                    aria-hidden="true">
-                                    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none">
-                                        <path
-                                            d="M22 16.5v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.8.3 1.6.6 2.3a2 2 0 0 1-.5 2.1L8 9.2a16 16 0 0 0 6 6l1.1-1.1a2 2 0 0 1 2.1-.5c.7.3 1.5.5 2.3.6A2 2 0 0 1 22 16.5Z"
-                                            stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </span>
-                                <span>هاتف: <span class="font-bold text-white">+970 599 000 000</span></span>
-                            </p>
-
-                            <p class="flex items-center gap-2">
-                                <span
-                                    class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 text-white"
-                                    aria-hidden="true">
-                                    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none">
-                                        <path d="M4 6h16v12H4V6Z" stroke="currentColor" stroke-width="1.7" />
-                                        <path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.7"
-                                            stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </span>
-                                <span>البريد: <span class="font-bold text-white">support@alataa.org</span></span>
-                            </p>
-
-                            <p class="flex items-center gap-2">
-                                <span
-                                    class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 text-white"
-                                    aria-hidden="true">
-                                    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none">
-                                        <path d="M12 21s7-4 7-10a7 7 0 1 0-14 0c0 6 7 10 7 10Z" stroke="currentColor"
-                                            stroke-width="1.7" />
-                                        <path d="M12 11.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" stroke="currentColor"
-                                            stroke-width="1.7" />
-                                    </svg>
-                                </span>
-                                <span>العنوان: <span class="font-bold text-white">فلسطين • غزة</span></span>
-                            </p>
-                        </div>
-
-                        <div class="mt-5">
-                            <a href="#donate"
-                                class="inline-flex w-full items-center justify-center rounded-xl bg-cta px-5 py-3 text-sm font-extrabold text-white shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-primary">
-                                تبرع الآن
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Newsletter -->
-                    <div class="lg:col-span-3">
-                        <h3 class="text-sm font-extrabold text-white">نشرة بريدية</h3>
-                        <p class="mt-4 text-sm leading-7 text-gray-300">
-                            اشترك لتصلك آخر الحملات والتقارير وقصص الأثر — مرة واحدة أسبوعيًا.
-                        </p>
-
-                        <form class="mt-4 space-y-3" aria-label="نموذج الاشتراك في النشرة البريدية">
-                            <label class="sr-only" for="newsletterEmail">البريد الإلكتروني</label>
-                            <input id="newsletterEmail" type="email" placeholder="اكتب بريدك الإلكتروني"
-                                class="w-full rounded-xl border border-white/10 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-gray-300 shadow-sm transition focus:border-primary focus:ring-2 focus:ring-primary/40" />
-                            <button type="submit"
-                                class="w-full rounded-xl bg-primary px-5 py-3 text-sm font-extrabold text-white shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-primary">
-                                اشترك الآن
-                            </button>
-                            <p class="text-xs text-gray-400">بالاشتراك، أنت توافق على استقبال رسائلنا. يمكنك الإلغاء في
-                                أي وقت.</p>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="mt-10 border-t border-white/10 pt-6">
-                    <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                        <p class="text-xs text-gray-400">
-                            © <span id="year"></span> مؤسسة العطاء — جميع الحقوق محفوظة.
-                        </p>
-                        <div class="flex flex-wrap items-center gap-3 text-xs text-gray-400">
-                            <a href="#"
-                                class="hover:underline focus-visible:ring-2 focus-visible:ring-primary rounded-md px-1">سياسة
-                                الخصوصية</a>
-                            <span class="text-gray-600">•</span>
-                            <a href="#"
-                                class="hover:underline focus-visible:ring-2 focus-visible:ring-primary rounded-md px-1">الشروط
-                                والأحكام</a>
-                            <span class="text-gray-600">•</span>
-                            <a href="#"
-                                class="hover:underline focus-visible:ring-2 focus-visible:ring-primary rounded-md px-1">الأسئلة
-                                الشائعة</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-    </main>
-
-    <!-- Simple JS (allowed) -->
-    <script>
-        // year
-        document.getElementById("year").textContent = new Date().getFullYear();
-
-        // mobile menu toggle
-        const menuBtn = document.getElementById("menuBtn");
-        const mobileMenu = document.getElementById("mobileMenu");
-        if (menuBtn && mobileMenu) {
-            menuBtn.addEventListener("click", () => {
-                mobileMenu.classList.toggle("hidden");
-                const expanded = !mobileMenu.classList.contains("hidden");
-                menuBtn.setAttribute("aria-label", expanded ? "إغلاق القائمة" : "فتح القائمة");
-            });
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================
+       Vanilla JS (same file)
+       - Navbar scroll state
+       - Mobile menu toggle
+       - Donation widget interactions
+       - Scroll reveal (IntersectionObserver)
+       - Reusable slider component
+       - Respects prefers-reduced-motion
+       ========================= -->
+  <script>
+    (function () {
+      const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Year
+      const yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+
+      // Mobile menu toggle
+      const menuBtn = document.getElementById('menuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', () => {
+          const isHidden = mobileMenu.classList.contains('hidden');
+          mobileMenu.classList.toggle('hidden');
+          menuBtn.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+          menuBtn.setAttribute('aria-label', isHidden ? 'إغلاق القائمة' : 'فتح القائمة');
+        });
+      }
+
+      // Navbar style change on scroll (avoid layout thrash)
+      const navShell = document.getElementById('navShell');
+      let lastScrollY = 0;
+      let ticking = false;
+
+      function applyNavState(y) {
+        if (!navShell) return;
+        const scrolled = y > 8;
+        navShell.classList.toggle('bg-white/90', scrolled);
+        navShell.classList.toggle('supports-[backdrop-filter]:bg-white/75', scrolled);
+        navShell.classList.toggle('border-slate-200/70', scrolled);
+        navShell.classList.toggle('shadow-sm', scrolled);
+      }
+
+      window.addEventListener('scroll', () => {
+        lastScrollY = window.scrollY || 0;
+        if (!ticking) {
+          ticking = true;
+          window.requestAnimationFrame(() => {
+            applyNavState(lastScrollY);
+            ticking = false;
+          });
+        }
+      }, { passive: true });
+      applyNavState(window.scrollY || 0);
+
+      // Donation widget
+      const tabs = Array.from(document.querySelectorAll('.donate-tab'));
+      const pills = Array.from(document.querySelectorAll('.amount-pill'));
+      const customAmount = document.getElementById('customAmount');
+      const clearAmount = document.getElementById('clearAmount');
+      const donateBtn = document.getElementById('donateBtn');
+
+      let currentTab = 'once';
+      let selectedAmount = null;
+
+      function setTab(tab) {
+        currentTab = tab;
+        tabs.forEach((t) => {
+          const isActive = t.dataset.tab === tab;
+          t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+          t.classList.toggle('bg-primary', isActive);
+          t.classList.toggle('text-white', isActive);
+          t.classList.toggle('shadow-sm', isActive);
+
+          t.classList.toggle('border', !isActive);
+          t.classList.toggle('border-slate-200', !isActive);
+          t.classList.toggle('bg-white', !isActive);
+          t.classList.toggle('text-slate-900', !isActive);
+        });
+
+        if (donateBtn) {
+          donateBtn.textContent = tab === 'monthly' ? 'اشترك بالتبرع الشهري' : 'تبرع الآن';
+          donateBtn.setAttribute('aria-label', donateBtn.textContent);
+        }
+      }
+
+      function setAmount(amount) {
+        selectedAmount = amount ? Number(amount) : null;
+        pills.forEach((p) => {
+          const active = p.dataset.amount === String(amount);
+          p.classList.toggle('bg-primarySoft', active);
+          p.classList.toggle('border-primary/30', active);
+          p.classList.toggle('text-primary', active);
+          p.classList.toggle('border-slate-200', !active);
+          p.classList.toggle('text-slate-900', !active);
+        });
+        if (customAmount) customAmount.value = amount ? String(amount) : '';
+      }
+
+      tabs.forEach((t) => t.addEventListener('click', () => setTab(t.dataset.tab || 'once')));
+      pills.forEach((p) => p.addEventListener('click', () => setAmount(p.dataset.amount)));
+
+      if (customAmount) {
+        customAmount.addEventListener('input', () => {
+          selectedAmount = customAmount.value ? Number(customAmount.value) : null;
+          pills.forEach((p) => {
+            p.classList.remove('bg-primarySoft', 'border-primary/30', 'text-primary');
+            p.classList.add('border-slate-200', 'text-slate-900');
+          });
+        });
+      }
+
+      if (clearAmount) {
+        clearAmount.addEventListener('click', () => {
+          selectedAmount = null;
+          if (customAmount) customAmount.value = '';
+          pills.forEach((p) => {
+            p.classList.remove('bg-primarySoft', 'border-primary/30', 'text-primary');
+            p.classList.add('border-slate-200', 'text-slate-900');
+          });
+          customAmount && customAmount.focus();
+        });
+      }
+
+      setTab('once');
+
+      // Scroll reveal (IntersectionObserver)
+      const revealEls = Array.from(document.querySelectorAll('[data-reveal]'));
+      if (reduceMotion) {
+        revealEls.forEach((el) => {
+          el.classList.remove('opacity-0', 'translate-y-3');
+        });
+      } else if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries, obs) => {
+          for (const entry of entries) {
+            if (!entry.isIntersecting) continue;
+            entry.target.classList.remove('opacity-0', 'translate-y-3');
+            obs.unobserve(entry.target);
+          }
+        }, { threshold: 0.12 });
+
+        revealEls.forEach((el) => io.observe(el));
+      } else {
+        revealEls.forEach((el) => el.classList.remove('opacity-0', 'translate-y-3'));
+      }
+
+      // =========================
+      // Reusable Slider Component
+      // =========================
+      class Slider {
+        constructor(root, options) {
+          this.root = root;
+          this.options = options;
+
+          this.viewport = root.querySelector('.slider-viewport');
+          this.track = root.querySelector('.slider-track');
+          this.prevBtn = root.querySelector('.slider-prev');
+          this.nextBtn = root.querySelector('.slider-next');
+          this.dotsEl = root.querySelector('.slider-dots');
+
+          if (!this.viewport || !this.track) return;
+
+          this.label = root.getAttribute('data-slider-label') || 'Carousel';
+
+          // A11y
+          this.root.setAttribute('role', 'region');
+          this.root.setAttribute('aria-roledescription', 'carousel');
+          this.root.setAttribute('aria-label', this.label);
+          this.root.tabIndex = 0;
+
+          this.originalSlides = Array.from(this.track.children);
+          this.originalCount = this.originalSlides.length;
+
+          this.items = 1;
+          this.step = 1;
+
+          this.index = 0;
+          this.clones = 0;
+
+          this.slideWidth = 0;
+          this.gap = 0;
+
+          this.timer = null;
+          this.isPaused = false;
+          this.isDragging = false;
+          this.dragStartX = 0;
+          this.dragStartTranslate = 0;
+          this.currentTranslate = 0;
+
+          this.onTransitionEnd = this.onTransitionEnd.bind(this);
+
+          this.init();
         }
 
-        // donation widget state
-        const tabs = Array.from(document.querySelectorAll(".donate-tab"));
-        const pills = Array.from(document.querySelectorAll(".amount-pill"));
-        const customAmount = document.getElementById("customAmount");
-        const clearAmount = document.getElementById("clearAmount");
-        const donateBtn = document.getElementById("donateBtn");
+        getItemsForWidth(width) {
+          const o = this.options;
+          if (width >= 1024 && o.itemsLg) return o.itemsLg;
+          if (width >= 768 && o.itemsMd) return o.itemsMd;
+          if (width >= 640 && o.itemsSm) return o.itemsSm;
+          return o.items || 1;
+        }
 
-        let currentTab = "once";
-        let selectedAmount = null;
+        getStep(items) {
+          const raw = this.options.step;
+          if (raw === 'auto') return items;
+          const n = Number(raw);
+          return Number.isFinite(n) && n > 0 ? n : items;
+        }
 
-        function setTab(tab) {
-            currentTab = tab;
-            tabs.forEach((t) => {
-                const isActive = t.dataset.tab === tab;
-                t.setAttribute("aria-selected", isActive ? "true" : "false");
-                t.classList.toggle("bg-primary", isActive);
-                t.classList.toggle("text-white", isActive);
-                t.classList.toggle("shadow-sm", isActive);
+        init() {
+          // Controls
+          if (this.prevBtn) this.prevBtn.addEventListener('click', () => this.prev());
+          if (this.nextBtn) this.nextBtn.addEventListener('click', () => this.next());
 
-                t.classList.toggle("border", !isActive);
-                t.classList.toggle("border-gray-200", !isActive);
-                t.classList.toggle("bg-white", !isActive);
-                t.classList.toggle("text-gray-800", !isActive);
-            });
+          // Pause on hover
+          this.root.addEventListener('mouseenter', () => this.pause());
+          this.root.addEventListener('mouseleave', () => this.resume());
 
-            if (donateBtn) {
-                donateBtn.textContent = tab === "monthly" ? "اشترك بالتبرع الشهري" : "تبرع الآن";
-                donateBtn.setAttribute("aria-label", donateBtn.textContent);
+          // Pause on focus within
+          this.root.addEventListener('focusin', () => this.pause());
+          this.root.addEventListener('focusout', () => this.resume());
+
+          // Keyboard
+          this.root.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+              e.preventDefault();
+              this.next();
             }
-        }
+            if (e.key === 'ArrowRight') {
+              e.preventDefault();
+              this.prev();
+            }
+          });
 
-        function setAmount(amount) {
-            selectedAmount = amount;
-            pills.forEach((p) => {
-                const active = p.dataset.amount === String(amount);
-                p.classList.toggle("bg-primarySoft", active);
-                p.classList.toggle("border-primary/30", active);
-                p.classList.toggle("text-primary", active);
-                p.classList.toggle("border-gray-200", !active);
-                p.classList.toggle("text-gray-800", !active);
+          // Swipe / drag (Pointer Events)
+          this.viewport.addEventListener('pointerdown', (e) => this.onPointerDown(e));
+          window.addEventListener('pointermove', (e) => this.onPointerMove(e));
+          window.addEventListener('pointerup', (e) => this.onPointerUp(e));
+          window.addEventListener('pointercancel', (e) => this.onPointerUp(e));
+
+          // Resize
+          let resizeRaf = 0;
+          window.addEventListener('resize', () => {
+            window.cancelAnimationFrame(resizeRaf);
+            resizeRaf = window.requestAnimationFrame(() => {
+              this.rebuild();
             });
-            if (customAmount) customAmount.value = amount ? String(amount) : "";
+          });
+
+          this.track.addEventListener('transitionend', this.onTransitionEnd);
+
+          this.rebuild();
+
+          if (this.options.autoplay && !reduceMotion) {
+            this.startAutoplay();
+          }
         }
 
-        tabs.forEach((t) =>
-            t.addEventListener("click", () => {
-                setTab(t.dataset.tab);
-            })
-        );
+        rebuild() {
+          if (!this.track) return;
 
-        pills.forEach((p) =>
-            p.addEventListener("click", () => {
-                setAmount(p.dataset.amount);
-            })
-        );
+          // Reset track to original
+          this.track.style.transitionDuration = reduceMotion ? '0ms' : '500ms';
 
-        if (customAmount) {
-            customAmount.addEventListener("input", () => {
-                selectedAmount = customAmount.value ? Number(customAmount.value) : null;
-                pills.forEach((p) => {
-                    p.classList.remove("bg-primarySoft", "border-primary/30", "text-primary");
-                    p.classList.add("border-gray-200", "text-gray-800");
-                });
+          // Restore original slides
+          const existing = Array.from(this.track.children);
+          existing.forEach((n) => n.remove());
+          this.originalSlides.forEach((s) => this.track.appendChild(s));
+
+          this.items = this.getItemsForWidth(window.innerWidth || 0);
+          this.step = this.getStep(this.items);
+
+          // Compute gap from CSS
+          const cs = getComputedStyle(this.track);
+          const colGap = parseFloat(cs.columnGap || cs.gap || '0') || 0;
+          this.gap = colGap;
+
+          // Create clones for looping
+          this.clones = this.options.loop ? Math.max(this.items, this.step) : 0;
+
+          const slides = Array.from(this.track.children);
+          const count = slides.length;
+
+          if (this.options.loop && count > 0) {
+            const head = slides.slice(0, this.clones).map((el) => el.cloneNode(true));
+            const tail = slides.slice(-this.clones).map((el) => el.cloneNode(true));
+            tail.forEach((c) => {
+              c.setAttribute('data-clone', 'true');
+              this.track.insertBefore(c, this.track.firstChild);
             });
-        }
-
-        if (clearAmount) {
-            clearAmount.addEventListener("click", () => {
-                selectedAmount = null;
-                if (customAmount) customAmount.value = "";
-                pills.forEach((p) => {
-                    p.classList.remove("bg-primarySoft", "border-primary/30", "text-primary");
-                    p.classList.add("border-gray-200", "text-gray-800");
-                });
-                customAmount?.focus();
+            head.forEach((c) => {
+              c.setAttribute('data-clone', 'true');
+              this.track.appendChild(c);
             });
+          }
+
+          // Set slide widths
+          const viewportWidth = this.viewport.clientWidth;
+          const totalGap = this.gap * (this.items - 1);
+          const slideWidth = Math.max(1, (viewportWidth - totalGap) / this.items);
+          this.slideWidth = slideWidth;
+
+          Array.from(this.track.children).forEach((el) => {
+            el.style.width = slideWidth + 'px';
+          });
+
+          // Index starts at first real slide
+          this.index = this.options.loop ? this.clones : 0;
+          this.setTranslateForIndex(false);
+          this.buildDots();
+          this.updateDots();
         }
 
-        // init
-        setTab("once");
-    </script>
+        buildDots() {
+          if (!this.dotsEl) return;
+          this.dotsEl.innerHTML = '';
+
+          const pages = Math.max(1, Math.ceil(this.originalCount / this.step));
+          for (let i = 0; i < pages; i++) {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'h-2.5 w-2.5 rounded-full bg-slate-200 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2';
+            btn.setAttribute('aria-label', 'الانتقال إلى المجموعة ' + (i + 1));
+            btn.addEventListener('click', () => {
+              this.goToPage(i);
+            });
+            this.dotsEl.appendChild(btn);
+          }
+        }
+
+        getNormalizedIndex() {
+          if (!this.options.loop) return this.index;
+          const raw = this.index - this.clones;
+          const n = ((raw % this.originalCount) + this.originalCount) % this.originalCount;
+          return n;
+        }
+
+        getCurrentPage() {
+          const normalized = this.getNormalizedIndex();
+          return Math.floor(normalized / this.step);
+        }
+
+        updateDots() {
+          if (!this.dotsEl) return;
+          const dots = Array.from(this.dotsEl.children);
+          const page = this.getCurrentPage();
+
+          dots.forEach((d, i) => {
+            const active = i === page;
+            d.classList.toggle('bg-primary', active);
+            d.classList.toggle('bg-slate-200', !active);
+            d.setAttribute('aria-current', active ? 'true' : 'false');
+          });
+        }
+
+        setTranslateForIndex(withTransition) {
+          if (!this.track) return;
+          this.track.style.transitionProperty = withTransition ? 'transform' : 'none';
+          const offset = this.index * (this.slideWidth + this.gap);
+          // RTL: move track to the LEFT using negative translate (still works in RTL)
+          this.currentTranslate = -offset;
+          this.track.style.transform = `translateX(${this.currentTranslate}px)`;
+          if (!withTransition) {
+            // re-enable transitions for next moves
+            // (next frame to avoid being ignored)
+            requestAnimationFrame(() => {
+              this.track.style.transitionProperty = 'transform';
+            });
+          }
+        }
+
+        next() {
+          this.pauseDuringInteraction();
+          this.index += this.step;
+          this.setTranslateForIndex(true);
+          this.updateDots();
+        }
+
+        prev() {
+          this.pauseDuringInteraction();
+          this.index -= this.step;
+          this.setTranslateForIndex(true);
+          this.updateDots();
+        }
+
+        goToPage(page) {
+          this.pauseDuringInteraction();
+          const target = page * this.step;
+          this.index = this.options.loop ? (this.clones + target) : target;
+          this.setTranslateForIndex(true);
+          this.updateDots();
+        }
+
+        onTransitionEnd() {
+          if (!this.options.loop) return;
+
+          const normalized = this.getNormalizedIndex();
+          // If moved past ends, jump without animation
+          this.index = this.clones + normalized;
+          this.setTranslateForIndex(false);
+          this.updateDots();
+        }
+
+        startAutoplay() {
+          const interval = Number(this.options.interval) || 4000;
+          if (interval < 1000) return;
+
+          this.stopAutoplay();
+          this.timer = window.setInterval(() => {
+            if (this.isPaused || this.isDragging) return;
+            this.next();
+          }, interval);
+        }
+
+        stopAutoplay() {
+          if (this.timer) {
+            window.clearInterval(this.timer);
+            this.timer = null;
+          }
+        }
+
+        pause() {
+          this.isPaused = true;
+        }
+
+        resume() {
+          this.isPaused = false;
+        }
+
+        pauseDuringInteraction() {
+          this.isPaused = true;
+          window.setTimeout(() => {
+            this.isPaused = false;
+          }, 1200);
+        }
+
+        onPointerDown(e) {
+          if (!this.viewport || !this.track) return;
+          // Only primary button for mouse
+          if (e.pointerType === 'mouse' && e.button !== 0) return;
+
+          this.isDragging = true;
+          this.pause();
+
+          this.viewport.setPointerCapture && this.viewport.setPointerCapture(e.pointerId);
+          this.dragStartX = e.clientX;
+          this.dragStartTranslate = this.currentTranslate;
+
+          this.track.style.transitionProperty = 'none';
+        }
+
+        onPointerMove(e) {
+          if (!this.isDragging) return;
+          const dx = e.clientX - this.dragStartX;
+          const nextTranslate = this.dragStartTranslate + dx;
+          this.currentTranslate = nextTranslate;
+          this.track.style.transform = `translateX(${nextTranslate}px)`;
+        }
+
+        onPointerUp(e) {
+          if (!this.isDragging) return;
+          this.isDragging = false;
+
+          const dx = e.clientX - this.dragStartX;
+          const threshold = Math.max(30, this.slideWidth * 0.18);
+
+          this.track.style.transitionProperty = 'transform';
+
+          if (dx < -threshold) {
+            // drag left -> next
+            this.next();
+          } else if (dx > threshold) {
+            // drag right -> prev
+            this.prev();
+          } else {
+            // snap back
+            this.setTranslateForIndex(true);
+          }
+
+          // resume shortly after
+          window.setTimeout(() => this.resume(), 600);
+        }
+      }
+
+      // Init sliders
+      const sliderRoots = Array.from(document.querySelectorAll('[data-slider]'));
+      sliderRoots.forEach((root) => {
+        let options = {};
+        try {
+          options = JSON.parse(root.getAttribute('data-slider') || '{}');
+        } catch {
+          options = {};
+        }
+        // default step to auto if missing
+        if (!('step' in options)) options.step = 'auto';
+        new Slider(root, options);
+      });
+    })();
+  </script>
 </body>
 
 </html>
